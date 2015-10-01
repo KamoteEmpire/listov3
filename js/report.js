@@ -21,7 +21,13 @@ $(document).ready(function(){
 						$.mobile.loading("hide");
 						alert(data);
 					}
-				});
-				
+				});	
+	});
+	
+	$.getJSON("display_initialdisaster_progress.php", function(data)
+         		{
+			 $.each(data, function(key, value) {
+			$("#divrptInitialDisasterProgress").append('<h1>'+value['name']+'</h1>'+'<h1>'+value['prelim']+'</h1>'+'<hr/>');					
+			});		
 	});
 });

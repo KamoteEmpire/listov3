@@ -371,7 +371,7 @@ meter::-webkit-meter-even-less-good-value {
 	<div role="main" class="ui-content">
 		
 		<a href="#rptInitialDisasterIncidents" class="ui-btn ui-btn-d"  >Initial</a>
-		<a href="#" class="ui-btn ui-btn-d"  >Progress</a>
+		<a href="#rptInitialDisasterProgress" class="ui-btn ui-btn-d"  id="btnInitialDisasterProgress">Progress</a>
 		<a href="#" class="ui-btn ui-btn-d"  >Final</a>
 		
 	</div>
@@ -407,15 +407,43 @@ meter::-webkit-meter-even-less-good-value {
 		</div>
 	</div>
 	
-	</div>
-<!-- End PopUp Disaster Incidents Page-->
-
-<div data-role="popup" id="popupAfterReportDataSubmit" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+	<div data-role="popup" id="popupAfterReportDataSubmit" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
 				<div data-role="header">
 					<h1>SUBMITTED</h1>
 				</div>
 				<p id="popuptextReportDataSubmit" style="text-align: center;"></p>
 	</div>
+	
+	
+	</div>
+<!-- End PopUp Disaster Incidents Page-->
+
+<!-- Start Initial Disaster Incidents Progress Page-->
+	<div data-role="page" id="rptInitialDisasterProgress" >
+	<div data-role="header">
+		<h1>Progress</h1>
+	</div>
+	<div role="main" class="ui-content">
+		
+		
+		
+	</div>
+	
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitInitialDisasterIncident">SUBMIT</button></li>
+			</ul>
+		</div>
+	</div>
+	
+	
+	
+	
+	</div>
+<!-- End PopUp Disaster Incidents Progress Page-->
+
+
 
 </body>
 </html>
