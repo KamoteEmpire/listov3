@@ -24,10 +24,17 @@ $(document).ready(function(){
 				});	
 	});
 	
-	$.getJSON("display_initialdisaster_progress.php", function(data)
+	$('#btnInitialDisasterProgress').click(function(){
+		
+			$.getJSON("display_initialdisaster_progress.php", function(data)
          		{
 			 $.each(data, function(key, value) {
-			$("#divrptInitialDisasterProgress").append('<h1>'+value['name']+'</h1>'+'<h1>'+value['prelim']+'</h1>'+'<hr/>');					
+			$("#divrptInitialDisasterProgress").append('<h1>'+value['incident']+'</h1>'+'<h1>'+value['where']+'</h1>'+'<hr/>');					
 			});		
 	});
+		
+		
+	});
+	
+	
 });
