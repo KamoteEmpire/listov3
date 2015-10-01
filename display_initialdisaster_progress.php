@@ -17,12 +17,14 @@ $posts = array();
 while($row=mysqli_fetch_array($result)) 
 { 
 $date=$row['fld_initd_date'];
+$subject=$row['fld_initd_subject'];
 $incident=$row['fld_initd_incident'];
 $where=$row['fld_initd_where'];
 $actions=$row['fld_initd_actions'];
 $timestamp=$row['fld_timestamp'];
 
 $posts[] = array('date'=> $date,
+'subject'=> $subject,
 'incident'=> $incident,
 'where'=> $where,
 'actions'=> $actions,

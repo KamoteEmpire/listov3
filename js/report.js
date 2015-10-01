@@ -25,12 +25,13 @@ $(document).ready(function(){
 	});
 	
 	$('#btnInitialDisasterProgress').click(function(){
-		
+		$.mobile.loading("show");
 			$.getJSON("display_initialdisaster_progress.php", function(data)
          		{
 			 $.each(data, function(key, value) {
-			$("#divrptInitialDisasterProgress").append('<h1>'+value['incident']+'</h1>'+'<h1>'+value['where']+'</h1>'+'<hr/>');					
-			});		
+			$("#divrptInitialDisasterProgress").append('<p>'+'+'<strong>'+Date posted : '+</strong>+value['timestamp']+'</p>'+'<p>'+'Subject : '+value['subject']+'</p>'+'<p>'+'Incident: '+value['incident']+'</p>'+'<hr/>');					
+			});	
+				$.mobile.loading("hide");
 	});
 		
 		
