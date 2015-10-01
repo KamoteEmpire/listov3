@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/themes/listo-theme.min.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
+  <link rel="stylesheet" href="css/themes/jquery.mobile.structure-1.4.5.min.css" /> 
+  <link rel="stylesheet" href="css/jquery.mobile.datepicker.css" />
+  <style>
+	meter::-webkit-meter-bar {
+    background: #EEE;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2) inset;
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-optimum-value {
+    background: #86CC00; /* Green */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-suboptimum-value {
+    background: #FFDB1A; /* Yellow */
+    border-radius: 3px;
+}
+
+meter::-webkit-meter-even-less-good-value {
+    background: #CC4600; /* Red */
+    border-radius: 3px;
+}
+  </style>
+  <script src="js/jquery.min.js"></script> 
+  <script src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/home.js"></script>
+	<script src="js/jquery.ui.datepicker.js"></script>
+	<script id="mobile-datepicker" src="js/jquery.mobile.datepicker.js"></script>
+	<script src="js/report.js"></script>
+	<script>
+	$(function()
+		  {
+			$( "#txt_initd_date" ).date({
+					dateFormat: "yy-mm-dd"
+			});
+		  
+			$.mobile.loading("show");
+		  $.getJSON("http://iligtas.ph/listo/mobile/cpaalertjson.php", function(myData)
+         		{
+				$.each(myData, function(key, value) {
+					$('#imgHotdogPath').attr('src', value['hotdogpath']);
+							
+				});
+					$.mobile.loading("hide");
+				});
+						
+						
+			});
+  </script>
+
+</head>
+<body>
+<div data-role="page" id="mainPage" data-transition="fade">
+	<div data-role="header">
+		<h1>OPLAN L!STO</h1>
+	</div>
+	<div role="main" class="ui-content">
+		<img id="imgHotdogPath" src="images/typhoonpath2.png" style="width:95%;margin-left:auto;margin-right:auto;display:block">
+		<div ><h3 style="text-align: center;">Typhoon Path Forecast</h3></div>
+		<a href="#popupUnderConstruction" class="ui-btn ui-btn-b" data-rel="popup" data-position-to="window" data-transition="slidedown" >Upload Proof of Service</a>
+		<a href="#pagePreMonitor" class="ui-btn ui-btn-c">LGU Actions</a>
+		<a href="#reportingPage"  class="ui-btn ui-btn-d">Reporting</a>
+		<!--<a href="#popupUnderConstruction" data-rel="popup" data-position-to="window" data-transition="slidedown" class="ui-btn ui-btn-d">Post Monitoring</a>-->
+	</div>
+	<div data-role="footer" data-position="fixed">
+	
+	</div>
+	
+	<div data-role="popup" id="popupUnderConstruction">
+	<div data-role="header" data-theme="d">
+		<h1>Note</h1>
+	</div>
+	<p>This function is still  under construction and will be available on the next update</p>
+</div>
+</div>
+
+<div data-role="page" id="pageLGU" >
+	<div>
+		
+	</div>
+</div>
+
+<!-- alpha page -->
+<div data-role="page" id="pagePreMonitor">
+
+	<div data-role="panel" id="panelPreMonitor" data-display="overlay" >
+		<ul data-role="listview" data-theme="b">
+			<li data-theme="b" >
+			<a href="#mainPage" >Home</a>
+			</li>
+			<li >
+			<a href="#popupUnderConstruction2" data-rel="popup" data-position-to="window" data-transition="slidedown" data-theme="d">Report</a>
+			</li>
+			<li >
+			<a href="#popupUnderConstruction2" data-rel="popup" data-position-to="window" data-transition="slidedown" data-theme="d">Post Monitoring</a>
+			</li>
+			
+		</ul>
+	</div>
+
+	<div data-role="header" data-theme="b" data-position="fixed">
+		<a href="#panelPreMonitor" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext" >Navigate</a>
+		<div><h1 id="headerPercentage" style="text-align: center;font-size: 1em;">LGU Actions</h3></div>
+		<a id="btnLogout"  href="#" class="ui-btn ui-btn-right ui-shadow ui-corner-all ui-icon-action ui-btn-icon-notext" >Navigate</a>
+	</div>
+	
+	
+	<div role="main" class="ui-content">
+	<meter min="0" max="35" low="10" high="20" optimum="30" value="0" style="width:100%; height:2em;" id="preMonitorMeter" >Alpha Completion</meter>
+	
+	
+	<div class="ui-grid-a">
+	<div class="ui-block-a"><div class="ui-bar ui-bar-a" style="height: 1em; text-align: center;">Completion: <span id="txtPreMonitorPercentage" name="txtPreMonitorPercentage" >0</span>% </div></div>
+	<div class="ui-block-b"><div class="ui-bar ui-bar-a" style="height: 1em; text-align: center;">Total: <span id="txtPreMonitorCounter" name="txtPreMonitorCounter" >0</span>/<span id="txtPreMonitorTotal" name="txtPreMonitorTotal" value="0">0</span></div></div>
+	</div>
+	
+	
+	<form id="frmLGUActions">
+		<input id="hiddenPreMonitorTyphoon" name="hiddenPreMonitorTyphoon" type="hidden" value="" />
+		<input id="hiddenPreMonitorRegion" name="hiddenPreMonitorRegion" type="hidden" value="" />
+		<input id="hiddenPreMonitorProvince" name="hiddenPreMonitorProvince" type="hidden" value="" />
+		<input id="hiddenPreMonitorCity" name="hiddenPreMonitorCity" type="hidden" value="" />
+		<input id="hiddenPreMonitorPercentage" name="hiddenPreMonitorPercentage" type="hidden" value="0" />
+		<input id="hiddenPreMonitorCounter" name="hiddenPreMonitorCounter" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-a-1" name="hiddenpreMonitor-a-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-a-2" name="hiddenpreMonitor-a-2" type="hidden" value="0" />
+		
+		
+		<input id="hiddenpreMonitor-b-1" name="hiddenpreMonitor-b-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-2" name="hiddenpreMonitor-b-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-3" name="hiddenpreMonitor-b-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-4" name="hiddenpreMonitor-b-4" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-5" name="hiddenpreMonitor-b-5" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-6" name="hiddenpreMonitor-b-6" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-7" name="hiddenpreMonitor-b-7" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-8" name="hiddenpreMonitor-b-8" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-9" name="hiddenpreMonitor-b-9" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-10" name="hiddenpreMonitor-b-10" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-b-11" name="hiddenpreMonitor-b-11" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-12" name="hiddenpreMonitor-b-12" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-13" name="hiddenpreMonitor-b-13" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-14" name="hiddenpreMonitor-b-14" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-15" name="hiddenpreMonitor-b-15" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-b-16" name="hiddenpreMonitor-b-16" type="hidden" value="0" />
+		
+		<input id="hiddenpreMonitor-c-1" name="hiddenpreMonitor-c-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-2" name="hiddenpreMonitor-c-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-3" name="hiddenpreMonitor-c-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-4" name="hiddenpreMonitor-c-4" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-5" name="hiddenpreMonitor-c-5" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-c-6" name="hiddenpreMonitor-c-6" type="hidden" value="0" />
+		
+		
+		<input id="hiddenpreMonitor-d-1" name="hiddenpreMonitor-d-1" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-2" name="hiddenpreMonitor-d-2" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-3" name="hiddenpreMonitor-d-3" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-4" name="hiddenpreMonitor-d-4" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-5" name="hiddenpreMonitor-d-5" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-6" name="hiddenpreMonitor-d-6" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-7" name="hiddenpreMonitor-d-7" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-8" name="hiddenpreMonitor-d-8" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-9" name="hiddenpreMonitor-d-9" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-10" name="hiddenpreMonitor-d-10" type="hidden" value="0" />
+		<input id="hiddenpreMonitor-d-11" name="hiddenpreMonitor-d-11" type="hidden" value="0" />
+		
+		
+	</form>
+	
+		<div data-role="collapsibleset" data-inset="false">
+			<div data-role="collapsible" data-theme="c">
+				<h2>INITIAL CHECK</h2>
+					<ul data-role="listview" data-divider-theme="c">
+						
+						<input type="checkbox" checked="" name="preMonitor-a-1" id="preMonitor-a-1" data-mini="true">
+						<label for="preMonitor-a-1">The mayor is present in the city/municipal hall.</label>
+						<input type="checkbox" name="preMonitor-a-2" id="preMonitor-a-2" data-mini="true">
+						<label for="preMonitor-a-2">C/MLGOO informed LGU of the weather alert with Proof of Service</label>
+						
+					</ul>
+			</div>
+			
+			<div data-role="collapsible" data-theme="c" >
+				<h2>GET ORGANIZED</h2>
+					<ul data-role="listview" data-divider-theme="c">
+						
+						<input type="checkbox" name="preMonitor-b-1" id="preMonitor-b-1" data-mini="true">
+						<label for="preMonitor-b-1">Convened LDRRMC within 24 hours upon receiving a severe weather bulletin</label>
+						<input type="checkbox" name="preMonitor-b-2" id="preMonitor-b-2" data-mini="true">
+						<label for="preMonitor-b-2">Reviewed LDRRM/Contigency Plans and Hazard Risk Maps</label>
+						
+						
+						<input type="checkbox" name="preMonitor-b-3" id="preMonitor-b-3" data-mini="true">
+						<label for="preMonitor-b-3">Estimated number of evacuees</label>
+						
+						
+						<input type="checkbox" name="preMonitor-b-4" id="preMonitor-b-4" data-mini="true">
+						<label for="preMonitor-b-4">Readied pre-emptive/forced Evacuation Plans</label>
+						<input type="checkbox" name="preMonitor-b-5" id="preMonitor-b-5" data-mini="true">
+						<label for="preMonitor-b-5">Organized Administrative/Logistical Support Team</label>
+						<input type="checkbox" name="preMonitor-b-6" id="preMonitor-b-6" data-mini="true">
+						<label for="preMonitor-b-6">Organized Search, Rescue and Retrieval Teams</label>
+						<input type="checkbox" name="preMonitor-b-7" id="preMonitor-b-7" data-mini="true">
+						<label for="preMonitor-b-7">Organized Security Teams</label>
+						
+					
+						<input type="checkbox" name="preMonitor-b-8" id="preMonitor-b-8" data-mini="true">
+						<label for="preMonitor-b-8">Organized Medical Teams in ECs</label>
+						<input type="checkbox" name="preMonitor-b-9" id="preMonitor-b-9" data-mini="true">
+						<label for="preMonitor-b-9">Organized Clearing Operations Team</label>
+						<input type="checkbox" name="preMonitor-b-10" id="preMonitor-b-10" data-mini="true">
+						<label for="preMonitor-b-10">Organized Monitoring and Reporting Team</label>
+						
+						<input type="checkbox" name="preMonitor-b-11" id="preMonitor-b-11" data-mini="true">
+						<label for="preMonitor-b-11">Activated 24/7 Emergency Operations Center </label>
+						<input type="checkbox" name="preMonitor-b-12" id="preMonitor-b-12" data-mini="true">
+						<label for="preMonitor-b-12">Activated Incident Command System </label>
+						<input type="checkbox" name="preMonitor-b-13" id="preMonitor-b-13" data-mini="true">
+						<label for="preMonitor-b-13">Conducted inventory of supplies, equipment and stockpile of goods</label>
+						<input type="checkbox" name="preMonitor-b-14" id="preMonitor-b-14" data-mini="true">
+						<label for="preMonitor-b-14">Assessed Evacuation Centers</label>
+						<input type="checkbox" name="preMonitor-b-15" id="preMonitor-b-15" data-mini="true">
+						<label for="preMonitor-b-15">Conducted clearing operations and assessed structures</label>
+						<input type="checkbox" name="preMonitor-b-16" id="preMonitor-b-16" data-mini="true">
+						<label for="preMonitor-b-16">Placed adequate guide markers at strategic locations  for evacuees and operations teams</label>
+					</ul>	
+			</div>
+			<div data-role="collapsible" data-theme="c" >
+				<h2>ALERT COMMUNITIES </h2>
+					<ul data-role="listview" data-divider-theme="d">
+						<input type="checkbox" name="preMonitor-c-1" id="preMonitor-c-1" data-mini="true">
+						<label for="preMonitor-c-1">Informed Punong Barangays of weather advisory</label>
+						<input type="checkbox" name="preMonitor-c-2" id="preMonitor-c-2" data-mini="true">
+						<label for="preMonitor-c-2">Disseminated public warnings thru established warning systems and weather bulletins, especially families in identified danger zones</label>
+						<input type="checkbox" name="preMonitor-c-3" id="preMonitor-c-3" data-mini="true">
+						<label for="preMonitor-c-3">(For coastal and island barangays) Warned fisherfolks to take precautionary measures when going out to sea</label>
+						<input type="checkbox" name="preMonitor-c-4" id="preMonitor-c-4" data-mini="true">
+						<label for="preMonitor-c-4">(For coastal and island barangays) Issued prohibitions for sea voyage and fishing (include rivers) and prevented people to cross in any body of water</label>
+						<input type="checkbox" name="preMonitor-c-5" id="preMonitor-c-5" data-mini="true">
+						<label for="preMonitor-c-5">Advised households to prepare  survival kits/ secure roof, wall, power lines</label>
+						<input type="checkbox" name="preMonitor-c-6" id="preMonitor-c-6" data-mini="true">
+						<label for="preMonitor-c-6">Issued suspension of classes for appropriate levels and suspension of work for private and government offices</label>
+						
+						
+					</ul>	
+			</div>
+			
+			<div data-role="collapsible" data-theme="c" >
+				<h2>EXECUTE PLANS</h2>
+					<ul data-role="listview" data-divider-theme="d">
+						
+						<input type="checkbox" name="preMonitor-d-1" id="preMonitor-d-1" data-mini="true">
+						<label for="preMonitor-d-1">Prepared Evacuation Centers</label>
+						<input type="checkbox" name="preMonitor-d-2" id="preMonitor-d-2" data-mini="true">
+						<label for="preMonitor-d-2">Conducted pre-emptive/forced evacuation</label>
+						<input type="checkbox" name="preMonitor-d-3" id="preMonitor-d-3" data-mini="true">
+						<label for="preMonitor-d-3">Conducted mass feeding</label>
+						<input type="checkbox" name="preMonitor-d-4" id="preMonitor-d-4" data-mini="true">
+						<label for="preMonitor-d-4">Cancelled travel authorities for SAR and frontline personnel </label>
+						
+						<input type="checkbox" name="preMonitor-d-5" id="preMonitor-d-5" data-mini="true">
+						<label for="preMonitor-d-5">Repacked and prepositioned food packs and non-food items for evacuees </label>
+						
+						
+						<input type="checkbox" name="preMonitor-d-6" id="preMonitor-d-6" data-mini="true">
+						<label for="preMonitor-d-6">Dispatched and prepositioned SAR/SRR, Medical, Security and Clearing Operations teams </label>
+						<input type="checkbox" name="preMonitor-d-7" id="preMonitor-d-7" data-mini="true">
+						<label for="preMonitor-d-7">Advised Security Teams to maintain peace and order</label>
+						<input type="checkbox" name="preMonitor-d-8" id="preMonitor-d-8" data-mini="true">
+						<label for="preMonitor-d-8">Secured communication, power and water supply lines </label>
+						
+						
+						<input type="checkbox" name="preMonitor-d-9" id="preMonitor-d-9" data-mini="true">
+						<label for="preMonitor-d-9">Deployed brgy health workers/volunteers to provide medical, psycho-social, and spiritual counselling to the evacuees </label>
+						<input type="checkbox" name="preMonitor-d-10" id="preMonitor-d-10" data-mini="true">
+						<label for="preMonitor-d-10">Coordinated with PNP and BFP for reporting of casualties (dead, missing, injured) and damage to structures, if any</label>
+						<input type="checkbox" name="preMonitor-d-11" id="preMonitor-d-11" data-mini="true">
+						<label for="preMonitor-d-11">C/MHO coordinated with PNP and funeral parlors to manage dead, if any</label>
+						
+					</ul>	
+			</div>
+			
+			
+			
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" id="btnSubmitPreMonitor">SUBMIT</button></li>
+			</ul>
+		</div>
+	</div>
+	
+	
+	
+	<!-- under construction popUp -->
+	
+	<div data-role="popup" id="popupUnderConstruction2">
+	<div data-role="header" data-theme="d">
+		<h1>Note</h1>
+	</div>
+	<p>This function is still  under construction and will be available on the next update</p>
+	</div>
+	
+	<!-- Data Submitted Pop Up-->
+	<div data-role="popup" id="popupAfterDataSubmit" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>SUBMITTED</h1>
+				</div>
+				<p id="popuptextDataSubmit" style="text-align: center;"></p>
+	</div>
+	
+	<!-- Logout Are You Sure-->
+	<div data-role="popup" id="popupAfterLogoutSure" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>Are you sure?</h1>
+				</div>
+				<div role="main" class="ui-content">
+				<p id="popuptextLogoutSure" style="text-align: center;"></p>
+				</div>
+	</div>
+	
+	<!-- Logout Pop Up-->
+	<div data-role="popup" id="popupAfterLogout" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>Logging Out...</h1>
+				</div>
+				<p id="popuptextLogout" style="text-align: center;"></p>
+	</div>
+</div>
+
+<!-- Start Reporting Page-->
+	<div data-role="page" id="reportingPage" data-transition="fade">
+	<div data-role="header">
+		<h1>REPORTING</h1>
+	</div>
+	<div role="main" class="ui-content">
+		
+		<a href="#rptDisasterIncidents" role="button" class="ui-btn ui-btn-d" data-transition="pop"  >Disaster Incidents</a>
+		<a href="#" class="ui-btn ui-btn-d"  >Affected Population</a>
+		<a href="#" class="ui-btn ui-btn-d"  >Casualties</a>
+		<a href="#" class="ui-btn ui-btn-d"  >Lifeline Status</a>
+		<a href="#" class="ui-btn ui-btn-d"  >Damaged Houses</a>
+		<a href="#" class="ui-btn ui-btn-d"  >Classes/Work Cancellation</a>
+		<a href="#" class="ui-btn ui-btn-d"  >State of Calamity</a>
+		
+	</div>
+	<div data-role="footer" data-position="fixed">
+	
+	</div>
+	</div>
+<!-- End Reporting Page-->
+
+<!-- Start PopUp Disaster Incidents Page-->
+	<div data-role="page" id="rptDisasterIncidents" data-dialog="true">
+	<div data-role="header">
+		<h1>Incidents</h1>
+	</div>
+	<div role="main" class="ui-content">
+		
+		<a href="#rptInitialDisasterIncidents" class="ui-btn ui-btn-d"  >Initial</a>
+		<a href="#" class="ui-btn ui-btn-d"  >Progress</a>
+		<a href="#" class="ui-btn ui-btn-d"  >Final</a>
+		
+	</div>
+	<div data-role="footer" data-position="fixed">
+	
+	</div>
+	</div>
+<!-- End PopUp Disaster Incidents Page-->
+
+<!-- Start Initial Disaster Incidents Page-->
+	<div data-role="page" id="rptInitialDisasterIncidents" >
+	<div data-role="header">
+		<h1>Incidents</h1>
+	</div>
+	<div role="main" class="ui-content">
+		
+		<form id="frmInitialDisasterIncident">
+			<input type="hidden" id="txt_initd_city" name="txt_initd_city" />
+			<input type="text" id="txt_initd_date" name="txt_initd_date" data-role="date" placeholder="When it happened?" />
+			<input type="text" id="txt_initd_subject" name="txt_initd_subject" placeholder="Subject" >
+			<input type="text" id="txt_initd_incident" name="txt_initd_incident" placeholder="What incident?">
+			<input type="text" id="txt_initd_where" name="txt_initd_where" placeholder="Where it happened?">
+			<input type="text" id="txt_initd_actions" name="txt_initd_actions" placeholder="Actions taken" >
+		</form>
+		
+	</div>
+	
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitInitialDisasterIncident">SUBMIT</button></li>
+			</ul>
+		</div>
+	</div>
+	
+	</div>
+<!-- End PopUp Disaster Incidents Page-->
+
+</body>
+</html>

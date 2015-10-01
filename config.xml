@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="ph.iligtas.listo" version="1.0">
+
+	<name>LISTO</name>
+	<description>Tamang Paghahanda, Tamang Aksyon!</description>
+	<author>Team GC-CCS</author>
+	<gap:platforms>
+		<gap:platform name="android" />
+	</gap:platforms>
+	
+	<gap:plugin name="com.pushwoosh.plugins.pushwoosh" source="plugins.cordova.io" />
+	<icon src="icon.png" />
+	<icon src="images/icon_36.png" gap:platform="android" gap:qualifier="ldpi" />
+	<icon src="images/icon_48.png" gap:platform="android" gap:qualifier="mdpi" />
+	<icon src="images/icon_72.png" gap:platform="android" gap:qualifier="hdpi" />
+	<icon src="images/icon_96.png" gap:platform="android" gap:qualifier="xhdpi" />
+	
+	
+	<preference name="phonegap-version" value="3.7.0" />
+	<preference name="orientation" value="portrait" />
+	<preference name="fullscreen" value="true" />
+	
+	<access origin="*" subdomains="true" />
+	<access uri="*" subdomains="true" />
+	
+	<access origin="*"/> <!-- allow all pages, use for development -->
+<access origin="*.pushwoosh.com"/> <!-- allow pushwoosh service -->
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/camera"/>
+	<feature name="http://api.phonegap.com/1.0/file"/>
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	
+	<gap:plugin name="org.apache.cordova.inappbrowser" />
+	<gap:plugin name="org.apache.cordova.camera" />
+	<gap:plugin name="org.apache.cordova.media" />
+	<gap:plugin name="org.apache.cordova.media-capture" />
+	<gap:plugin name="org.apache.cordova.geolocation" />
+	<gap:plugin name="org.apache.cordova.file" />
+	<gap:plugin name="org.apache.cordova.file-transfer" />
+	<gap:plugin name="de.appplant.cordova.plugin.local-notification" version="0.8.1" />
+	<gap:plugin name="com.telerik.plugins.nativepagetransitions" version="0.2.2" />
+	
+	<preference name="android-minSdkVersion" value="14" />
+	
+	
+</widget>
