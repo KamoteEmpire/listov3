@@ -10,9 +10,9 @@ $(document).ready(function(){
 					data: frmInitialDisasterIncident.serialize(),
 					success: function (data) {
 						$.mobile.loading("hide");
-						$("#popuptextDataSubmit").html("<strong>"+data+"<strong>");	
-						$( "#popupAfterDataSubmit" ).popup();
-						$( "#popupAfterDataSubmit" ).popup( "open", { 
+						$("#popuptextReportDataSubmit").html("<strong>"+data+"<strong>");	
+						$( "#popupAfterReportDataSubmit" ).popup();
+						$( "#popupAfterReportDataSubmit" ).popup( "open", { 
 						positionTo: "window",
 						transition: "slidedown" });
 						$.mobile.loading("hide");
