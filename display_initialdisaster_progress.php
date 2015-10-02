@@ -9,7 +9,9 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 mysqli_select_db($conn,"db_listo");
-$sql = "SELECT * FROM tbl_initial_disaster";
+
+$username=$_GET["txtGetUsername"];
+$sql = "SELECT * FROM tbl_initial_disaster WHERE fld_username = '".$username."'";
 $result = mysqli_query($conn, $sql);
 
 $posts = array();

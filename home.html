@@ -349,12 +349,16 @@ meter::-webkit-meter-even-less-good-value {
 	<div role="main" class="ui-content">
 		
 		<a href="#rptDisasterIncidents" role="button" class="ui-btn ui-btn-d" data-transition="pop"  >Disaster Incidents</a>
-		<a href="#" class="ui-btn ui-btn-d"  >Affected Population</a>
+		<a href="#rptAffectedPopulation" class="ui-btn ui-btn-d"  >Affected Population</a>
 		<a href="#" class="ui-btn ui-btn-d"  >Casualties</a>
 		<a href="#" class="ui-btn ui-btn-d"  >Lifeline Status</a>
 		<a href="#" class="ui-btn ui-btn-d"  >Damaged Houses</a>
 		<a href="#" class="ui-btn ui-btn-d"  >Classes/Work Cancellation</a>
 		<a href="#" class="ui-btn ui-btn-d"  >State of Calamity</a>
+		
+		<form id="frmGetUsername">
+			<input type="hidden" id="txtGetUsername" name="txtGetUsername" />
+		</form>
 		
 	</div>
 	<div data-role="footer" data-position="fixed">
@@ -420,7 +424,24 @@ meter::-webkit-meter-even-less-good-value {
 
 <!-- Start Initial Disaster Incidents Progress Page-->
 	<div data-role="page" id="rptInitialDisasterProgress" >
+	
+	<div data-role="panel" id="panelInitialDisasterProgress" data-display="overlay" >
+		<ul data-role="listview" data-theme="b">
+			<li data-theme="b" >
+			<a href="#mainPage" >Home</a>
+			</li>
+			<li >
+			<a href="#popupUnderConstruction2" data-rel="popup" data-position-to="window" data-transition="slidedown" data-theme="d">Report</a>
+			</li>
+			<li >
+			<a href="#popupUnderConstruction2" data-rel="popup" data-position-to="window" data-transition="slidedown" data-theme="d">Post Monitoring</a>
+			</li>
+		</ul>
+		
+	</div>
+	
 	<div data-role="header">
+	<a href="#panelInitialDisasterProgress" class="ui-btn ui-btn-left ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext" >Navigate</a>	
 		<h1>Progress</h1>
 	</div>
 	<div role="main" class="ui-content">
@@ -431,21 +452,42 @@ meter::-webkit-meter-even-less-good-value {
 		
 	</div>
 	
+	</div>
+<!-- End PopUp Disaster Incidents Progress Page-->
+
+<!-- Start Report Affected population Page-->
+	<div data-role="page" id="rptAffectedPopulation" >
+	<div data-role="header">
+		<h1>Affected Population</h1>
+	</div>
+	<div role="main" class="ui-content">
+		
+		<form id="frmAffectedPopulation">
+			<input type="hidden" id="txt_affected_city" name="txt_affected_city" />
+			<input type="text" id="txt_affected_barangay" name="txt_affected_barangay" placeholder="Enter Barangay" />
+			<input type="number" id="txt_affected_families" name="txt_affected_families" placeholder="Families Affected" />
+		</form>
+		
+	</div>
+	
 	<div data-role="footer" data-position="fixed">
 		<div data-role="navbar" >
 			<ul>
-				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitInitialDisasterIncident">SUBMIT</button></li>
+				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitAffectedPopulation">SUBMIT</button></li>
 			</ul>
 		</div>
 	</div>
 	
-	
+	<div data-role="popup" id="popupAfterAffectedPopulationSubmit" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>SUBMITTED</h1>
+				</div>
+				<p id="popuptextAffectedPopulationSubmit" style="text-align: center;"></p>
+	</div>
 	
 	
 	</div>
-<!-- End PopUp Disaster Incidents Progress Page-->
-
-
+<!-- End Report Affected population Page-->
 
 </body>
 </html>
