@@ -1,4 +1,12 @@
 $(document).ready(function(){
+	$('#btnAffectedPopulation').click(function(){
+		
+		var preMonitorCity = localStorage.getItem('datacity');
+					
+			
+			$("#divCity").append('<p>'+'Enter barangay for '+'<strong>'+preMonitorCity+'</strong>'+'</p>');
+	});
+	
 	$('#btnSubmitInitialDisasterIncident').click(function(){
 			var preMonitorCity = localStorage.getItem('datausername');
 					$('#txt_initd_city').val(preMonitorCity);
@@ -48,10 +56,11 @@ $(document).ready(function(){
 	});
 	
 	$('#btnSubmitAffectedPopulation').click(function(){
-			alert("works");
+			
 			var preMonitorCity = localStorage.getItem('datausername');
 					$('#txt_affected_city').val(preMonitorCity);
 			var frmAffectedPopulation= $("#frmAffectedPopulation");
+			$("#divCity").append('<p>'+preMonitorCity+'</p>');
 			$.mobile.loading("show");
 				$.ajax({
 					url: 'add_affectedpopulation.php',						

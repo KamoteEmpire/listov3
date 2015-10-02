@@ -349,7 +349,7 @@ meter::-webkit-meter-even-less-good-value {
 	<div role="main" class="ui-content">
 		
 		<a href="#rptDisasterIncidents" role="button" class="ui-btn ui-btn-d" data-transition="pop"  >Disaster Incidents</a>
-		<a href="#rptAffectedPopulation" class="ui-btn ui-btn-d"  >Affected Population</a>
+		<a href="#rptAffectedPopulation" class="ui-btn ui-btn-d"  id="btnAffectedPopulation">Affected Population</a>
 		<a href="#" class="ui-btn ui-btn-d"  >Casualties</a>
 		<a href="#" class="ui-btn ui-btn-d"  >Lifeline Status</a>
 		<a href="#" class="ui-btn ui-btn-d"  >Damaged Houses</a>
@@ -458,10 +458,13 @@ meter::-webkit-meter-even-less-good-value {
 <!-- Start Report Affected population Page-->
 	<div data-role="page" id="rptAffectedPopulation" >
 	<div data-role="header">
-		<h1>Affected Population</h1>
+		<h1>Affected</h1>
 	</div>
 	<div role="main" class="ui-content">
+	
+		<div id="divCity">
 		
+		</div>
 		<form id="frmAffectedPopulation">
 			<input type="hidden" id="txt_affected_city" name="txt_affected_city" />
 			<input type="text" id="txt_affected_barangay" name="txt_affected_barangay" placeholder="Enter Barangay" />
