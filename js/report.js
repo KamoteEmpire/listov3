@@ -9,11 +9,11 @@ $(document).ready(function(){
 	
 	$('#btnSubmitInitialDisasterIncident').click(function(){
 			var preMonitorCity = localStorage.getItem('datausername');
-					$('#txt_initd_city').val(preMonitorCity);
+			$('#txt_initd_city').val(preMonitorCity);
 			var frmInitialDisasterIncident= $("#frmInitialDisasterIncident");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_initialdisaster.php',						
+					url: 'http://iligtas.ph/listo/mobile/add_initialdisaster.php',						
 					type: 'POST',
 					data: frmInitialDisasterIncident.serialize(),
 					success: function (data) {
@@ -43,7 +43,7 @@ $(document).ready(function(){
 			var preMonitorCity = localStorage.getItem('datausername');
 					$('#txtGetUsername').val(preMonitorCity);
 			var frmGetUsername= $("#frmGetUsername");
-			$.getJSON("display_initialdisaster_progress.php", frmGetUsername.serialize(), function(data)
+			$.getJSON("http://iligtas.ph/listo/mobile/display_initialdisaster_progress.php", frmGetUsername.serialize(), function(data)
          		{
 			
 			 $.each(data, function(key, value) {
@@ -63,7 +63,7 @@ $(document).ready(function(){
 			$("#divCity").append('<p>'+preMonitorCity+'</p>');
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_affectedpopulation.php',						
+					url: 'http://iligtas.ph/listo/mobile/add_affectedpopulation.php',						
 					type: 'POST',
 					data: frmAffectedPopulation.serialize(),
 					success: function (data) {
