@@ -148,6 +148,129 @@ $(document).ready(function(){
 					}
 				});	
 		});
+		$('#btnSubmitCancellationPre').click(function(){
+			var preMonitorCityPower = localStorage.getItem('datausername');
+			$('#txt_cancelPre_city').val(preMonitorCityPower);
+			var frmCancellationPre= $("#frmCancellationPre");
+			$.mobile.loading("show");
+				$.ajax({
+					url: 'add_cancellation.php',						
+					type: 'POST',
+					data: frmCancellationPre.serialize(),
+					success: function (data) {
+						$.mobile.loading("hide");
+						$("#popuptextReportDataSubmitCancellationPre").html("<strong>"+data+"<strong>");	
+						$( "#popupAfterReportDataSubmitCancellationPre" ).popup();
+						$( "#popupAfterReportDataSubmitCancellationPre" ).popup( "open", { 
+						positionTo: "window",
+						transition: "slidedown" });
+						$.mobile.loading("hide");
+					},
+					error: function(data){
+						$.mobile.loading("hide");
+						alert(data);
+					}
+				});	
+		});
+		$('#btnSubmitCancellationElem').click(function(){
+			var preMonitorCityPower = localStorage.getItem('datausername');
+			$('#txt_cancelElem_city').val(preMonitorCityPower);
+			var frmCancellationElem= $("#frmCancellationElem");
+			$.mobile.loading("show");
+				$.ajax({
+					url: 'add_cancellation.php',	
+					url: 'add_cancellation.php?category=$category',						
+					url: 'add_cancellation.php',
+					type: 'POST',
+					data: frmCancellationElem.serialize(),
+					success: function (data) {
+						$.mobile.loading("hide");
+						$("#popuptextReportDataSubmitCancellationPre").html("<strong>"+data+"<strong>");	
+						$( "#popupAfterReportDataSubmitCancellationPre" ).popup();
+						$( "#popupAfterReportDataSubmitCancellationPre" ).popup( "open", { 
+						positionTo: "window",
+						transition: "slidedown" });
+						$.mobile.loading("hide");
+					},
+					error: function(data){
+						$.mobile.loading("hide");
+						alert(data);
+					}
+				});	
+		});
+		$('#btnSubmitCancellationSec').click(function(){
+			var preMonitorCity = localStorage.getItem('datausername');
+			$('#txt_cancelSec_city').val(preMonitorCity);
+			var frmCancellationSec= $("#frmCancellationSec");
+			$.mobile.loading("show");
+				$.ajax({
+					url: 'add_cancellation.php',							
+					type: 'POST',
+					data: frmCancellationSec.serialize(),
+					success: function (data) {
+						$.mobile.loading("hide");
+						$("#popuptextReportDataSubmitCancellationSec").html("<strong>"+data+"<strong>");	
+						$( "#popupAfterReportDataSubmitCancellationSec" ).popup();
+						$( "#popupAfterReportDataSubmitCancellationSec" ).popup( "open", { 
+						positionTo: "window",
+						transition: "slidedown" });
+						$.mobile.loading("hide");
+					},
+					error: function(data){
+						$.mobile.loading("hide");
+						alert(data);
+					}
+				});	
+		});
+		$('#btnSubmitCancellationTer').click(function(){
+			var preMonitorCity = localStorage.getItem('datausername');
+			$('#txt_cancelTer_city').val(preMonitorCity);
+			var frmCancellationTer= $("#frmCancellationTer");
+			$.mobile.loading("show");
+				$.ajax({
+					url: 'add_cancellation.php',							
+					type: 'POST',
+					data: frmCancellationTer.serialize(),
+					success: function (data) {
+						$.mobile.loading("hide");
+						$("#popuptextReportDataSubmitCancellationTer").html("<strong>"+data+"<strong>");	
+						$( "#popupAfterReportDataSubmitCancellationTer" ).popup();
+						$( "#popupAfterReportDataSubmitCancellationTer" ).popup( "open", { 
+						positionTo: "window",
+						transition: "slidedown" });
+						$.mobile.loading("hide");
+					},
+					error: function(data){
+						$.mobile.loading("hide");
+						alert(data);
+					}
+				});	
+		});
+		$('#btnSubmitCancellationGov').click(function(){
+			var preMonitorCity = localStorage.getItem('datausername');
+			$('#txt_cancelGov_city').val(preMonitorCity);
+			var frmCancellationGov= $("#frmCancellationGov");
+			$.mobile.loading("show");
+				$.ajax({
+					url: 'add_cancellation.php',							
+					type: 'POST',
+					data: frmCancellationGov.serialize(),
+					success: function (data) {
+						$.mobile.loading("hide");
+						$("#popuptextReportDataSubmitCancellationGov").html("<strong>"+data+"<strong>");	
+						$( "#popupAfterReportDataSubmitCancellationGov" ).popup();
+						$( "#popupAfterReportDataSubmitCancellationGov" ).popup( "open", { 
+						positionTo: "window",
+						transition: "slidedown" });
+						$.mobile.loading("hide");
+					},
+					error: function(data){
+						$.mobile.loading("hide");
+						alert(data);
+					}
+				});	
+		});
+
 	
 	
 });
