@@ -42,5 +42,8 @@
 	
 	<preference name="android-minSdkVersion" value="14" />
 	
+	<gap:config-file platform="android" parent="/manifest/application">
+        android:windowSoftInputMode="stateVisible"
+	</gap:config-file> 
 	
 </widget>
