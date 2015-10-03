@@ -6,7 +6,7 @@ $(document).ready(function(){
 			var frmCasualtiesDead= $("#frmCasualtiesDead");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_casualtiesdead.php',						
+					url: 'http://iligtas.ph/listo/mobile/add_casualtiesdead.php',						
 					type: 'POST',
 					data: frmCasualtiesDead.serialize(),
 					success: function (data) {
@@ -32,7 +32,7 @@ $(document).ready(function(){
 			var frmCasualtiesInjured= $("#frmCasualtiesInjured");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_casualtiesinjured.php',						
+					url: 'http://iligtas.ph/listo/mobile/add_casualtiesinjured.php',						
 					type: 'POST',
 					data: frmCasualtiesInjured.serialize(),
 					success: function (data) {
@@ -57,7 +57,7 @@ $(document).ready(function(){
 			var frmCasualtiesMissing= $("#frmCasualtiesMissing");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_casualtiesmissing.php',						
+					url: 'http://iligtas.ph/listo/mobile/add_casualtiesmissing.php',						
 					type: 'POST',
 					data: frmCasualtiesMissing.serialize(),
 					success: function (data) {
@@ -82,7 +82,7 @@ $(document).ready(function(){
 			var frmLifelineStatusRoad= $("#frmLifelineStatusRoad");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_lifelinestatus_road.php',						
+					url: 'http://iligtas.ph/listo/mobile/add_lifelinestatus_road.php',						
 					type: 'POST',
 					data: frmLifelineStatusRoad.serialize(),
 					success: function (data) {
@@ -106,7 +106,7 @@ $(document).ready(function(){
 			var frmLifelineStatusComm= $("#frmLifelineStatusComm");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_lifelinestatus_comm.php',						
+					url: 'http://iligtas.ph/listo/mobile/add_lifelinestatus_comm.php',						
 					type: 'POST',
 					data: frmLifelineStatusComm.serialize(),
 					success: function (data) {
@@ -130,7 +130,7 @@ $(document).ready(function(){
 			var frmLifelineStatusPower= $("#frmLifelineStatusPower");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_lifelinestatus_power.php',						
+					url: 'http://iligtas.ph/listo/mobile/add_lifelinestatus_power.php',						
 					type: 'POST',
 					data: frmLifelineStatusPower.serialize(),
 					success: function (data) {
@@ -154,7 +154,7 @@ $(document).ready(function(){
 			var frmCancellationPre= $("#frmCancellationPre");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_cancellation.php',						
+					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',						
 					type: 'POST',
 					data: frmCancellationPre.serialize(),
 					success: function (data) {
@@ -178,9 +178,7 @@ $(document).ready(function(){
 			var frmCancellationElem= $("#frmCancellationElem");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_cancellation.php',	
-					url: 'add_cancellation.php?category=$category',						
-					url: 'add_cancellation.php',
+					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',	
 					type: 'POST',
 					data: frmCancellationElem.serialize(),
 					success: function (data) {
@@ -204,7 +202,7 @@ $(document).ready(function(){
 			var frmCancellationSec= $("#frmCancellationSec");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_cancellation.php',							
+					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',							
 					type: 'POST',
 					data: frmCancellationSec.serialize(),
 					success: function (data) {
@@ -228,7 +226,7 @@ $(document).ready(function(){
 			var frmCancellationTer= $("#frmCancellationTer");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_cancellation.php',							
+					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',							
 					type: 'POST',
 					data: frmCancellationTer.serialize(),
 					success: function (data) {
@@ -252,7 +250,7 @@ $(document).ready(function(){
 			var frmCancellationGov= $("#frmCancellationGov");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_cancellation.php',							
+					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',							
 					type: 'POST',
 					data: frmCancellationGov.serialize(),
 					success: function (data) {
@@ -278,7 +276,7 @@ $(document).ready(function(){
 			var frmCalamity= $("#frmCalamity");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'add_declareSC.php',							
+					url: 'http://iligtas.ph/listo/mobile/add_declareSC.php',							
 					type: 'POST',
 					data: frmCalamity.serialize(),
 					success: function (data) {
