@@ -270,6 +270,32 @@ $(document).ready(function(){
 					}
 				});	
 		});
+		
+		
+		$('#btnSubmitStateCalamity').click(function(){
+			var preMonitorCity = localStorage.getItem('datausername');
+			$('#txt_calamity_city').val(preMonitorCity);
+			var frmCalamity= $("#frmCalamity");
+			$.mobile.loading("show");
+				$.ajax({
+					url: 'add_declareSC.php',							
+					type: 'POST',
+					data: frmCalamity.serialize(),
+					success: function (data) {
+						$.mobile.loading("hide");
+						$("#popuptextReportDataSubmitStateCalamity").html("<strong>"+data+"<strong>");	
+						$( "#popupAfterReportDataSubmitStateCalamity" ).popup();
+						$( "#popupAfterReportDataSubmitStateCalamity" ).popup( "open", { 
+						positionTo: "window",
+						transition: "slidedown" });
+						$.mobile.loading("hide");
+					},
+					error: function(data){
+						$.mobile.loading("hide");
+						alert(data);
+					}
+				});	
+		});
 
 	
 	
