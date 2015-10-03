@@ -37,12 +37,42 @@ meter::-webkit-meter-even-less-good-value {
 	<script src="js/jquery.ui.datepicker.js"></script>
 	<script id="mobile-datepicker" src="js/jquery.mobile.datepicker.js"></script>
 	<script src="js/report.js"></script>
+	<script src="js/report2.js"></script>
 	<script>
 	$(function()
 		  {
 			$( "#txt_initd_date" ).date({
 					dateFormat: "yy-mm-dd"
 			});
+			//added new date format
+			$( "#txt_date_of_death" ).date({ 
+					dateFormat: "yy-mm-dd"
+			});
+			$( "#txt_cd_incident_date" ).date({
+					dateFormat: "yy-mm-dd"
+			});
+			$( "#txt_ci_incident_date" ).date({
+					dateFormat: "yy-mm-dd"
+			});
+			$( "#txt_cm_incident_date" ).date({
+					dateFormat: "yy-mm-dd"
+			});
+			$( "#txt_cancelPre_date" ).date({
+					dateFormat: "yy-mm-dd"
+			});
+			$( "#txt_cancelElem_date" ).date({
+					dateFormat: "yy-mm-dd"
+			});
+			$( "#txt_cancelSec_date" ).date({
+					dateFormat: "yy-mm-dd"
+			});
+			$( "#txt_cancelTer_date" ).date({
+					dateFormat: "yy-mm-dd"
+			});
+		  	$( "#txt_cancelGov_date" ).date({
+					dateFormat: "yy-mm-dd"
+			});
+		  
 		  
 			$.mobile.loading("show");
 		  $.getJSON("http://iligtas.ph/listo/mobile/cpaalertjson.php", function(myData)
@@ -350,11 +380,11 @@ meter::-webkit-meter-even-less-good-value {
 		
 		<a href="#rptDisasterIncidents" role="button" class="ui-btn ui-btn-d" data-transition="pop"  >Disaster Incidents</a>
 		<a href="#rptAffectedPopulation" class="ui-btn ui-btn-d"  id="btnAffectedPopulation">Affected Population</a>
-		<a href="#" class="ui-btn ui-btn-d"  >Casualties</a>
-		<a href="#" class="ui-btn ui-btn-d"  >Lifeline Status</a>
-		<a href="#" class="ui-btn ui-btn-d"  >Damaged Houses</a>
-		<a href="#" class="ui-btn ui-btn-d"  >Classes/Work Cancellation</a>
-		<a href="#" class="ui-btn ui-btn-d"  >State of Calamity</a>
+		<a href="#rptCasualties" role="button" class="ui-btn ui-btn-d" data-transition="pop"   >Casualties</a>
+		<a href="#rptLifelineStatus" class="ui-btn ui-btn-d"  >Lifeline Status</a>
+		<a href="#rptDamageHouses" class="ui-btn ui-btn-d"  >Damaged Houses</a>
+		<a href="#rptCancellation" class="ui-btn ui-btn-d"  >Classes/Work Cancellation</a>
+		<a href="#rptCalamity" class="ui-btn ui-btn-d"  >State of Calamity</a>
 		
 		<form id="frmGetUsername">
 			<input type="hidden" id="txtGetUsername" name="txtGetUsername" />
@@ -492,5 +522,546 @@ meter::-webkit-meter-even-less-good-value {
 	</div>
 <!-- End Report Affected population Page-->
 
+<!-- my code starts here -->
+<!-- Start PopUp Casualties Page-->
+	<div data-role="page" id="rptCasualties" data-dialog="true">
+	<div data-role="header">
+		<h1>Casualties</h1>
+	</div>
+	<div role="main" class="ui-content">
+		
+		<a href="#rptCasualtiesDead" class="ui-btn ui-btn-d"  >Dead</a>
+		<a href="#rptCasualtiesInjured" class="ui-btn ui-btn-d">Injured</a>
+		<a href="#rptCasualtiesMissing" class="ui-btn ui-btn-d"  >Missing</a>
+		
+	</div>
+	<div data-role="footer" data-position="fixed">
+	
+	</div>
+	</div>
+<!-- End PopUp Casualties Page-->
+
+<!-- Start Casualties - Dead Page-->
+	<div data-role="page" id="rptCasualtiesDead" >
+	<div data-role="header">
+		<h1>Casualties - Dead</h1>
+	</div>
+	<div role="main" class="ui-content">
+		
+		<form id="frmCasualtiesDead">
+			<input type="hidden" id="txt_casd_city" name="txt_casd_city" />
+			<input type="text" id="txt_cd_name" name="txt_cd_name"  placeholder="Name" />
+			<input type="number" id="txt_cd_age" name="txt_cd_age" placeholder="Age" >
+			<select placeholder="gender"  id="txt_cd_gender" name="txt_cd_gender"  >
+				<option readonly>--Gender--</option>
+				<option value="female">Female</option>
+				<option value="male">Male</option>
+			</select>
+			<input type="text" id="txt_cd_address" name="txt_cd_address" placeholder="Address">
+			<input type="text" id="txt_cause_of_death" name="txt_cause_of_death" placeholder="Cause of Death" >
+			<input type="text" id="txt_date_of_death" name="txt_date_of_death" data-role="date" placeholder="Date of Death">
+			<input type="text" id="txt_cd_incident" name="txt_cd_incident" placeholder="Incident" >
+			<input type="text" id="txt_cd_incident_date" name="txt_cd_incident_date" data-role="date" placeholder="Date of Incident" >
+			<select id="txt_cd_warnings" name="txt_cd_warnings" >
+				<option readonly>Where there warnings?</option>
+				<option value="yes">yes</option>
+				<option value="no">no</option>
+			</select>
+		</form>
+		
+	</div>
+	
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCasualtiesDead">SUBMIT</button></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div data-role="popup" id="popupAfterReportDataSubmitDead" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>SUBMITTED</h1>
+				</div>
+				<p id="popuptextReportDataSubmitDead" style="text-align: center;"></p>
+	</div>
+	
+	
+	</div>
+<!-- End PopUp Casualties - Dead Page-->
+
+<!-- Start Casualties - Injured Page-->
+	<div data-role="page" id="rptCasualtiesInjured" >
+	<div data-role="header">
+		<h1>Casualties - Injured</h1>
+	</div>
+	<div role="main" class="ui-content">
+		
+		<form id="frmCasualtiesInjured">
+			<input type="hidden" id="txt_casi_city" name="txt_casi_city" />
+			<input type="text" id="txt_ci_name" name="txt_ci_name"  placeholder="Name" />
+			<input type="number" id="txt_ci_age" name="txt_ci_age" placeholder="Age" >
+			<select placeholder="gender"  id="txt_ci_gender" name="txt_ci_gender"  >
+				<option readonly>--Gender--</option>
+				<option value="female">Female</option>
+				<option value="male">Male</option>
+			</select>
+			<input type="text" id="txt_ci_address" name="txt_ci_address" placeholder="Address">
+			<input type="text" id="txt_ci_injury" name="txt_ci_injury" placeholder="Injury" >
+			<input type="text" id="txt_ci_incident" name="txt_ci_incident" placeholder="Incident">
+			<input type="text" id="txt_ci_incident_date" name="txt_ci_incident_date" data-role="date" placeholder="Date of Incident" >
+			<select id="txt_ci_warnings" name="txt_ci_warnings" >
+				<option readonly>Where there warnings?</option>
+				<option value="yes">yes</option>
+				<option value="no">no</option>
+			</select>
+		</form>
+		
+	</div>
+	
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCasualtiesInjured">SUBMIT</button></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div data-role="popup" id="popupAfterReportDataSubmitInjured" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>SUBMITTED</h1>
+				</div>
+				<p id="popuptextReportDataSubmitInjured" style="text-align: center;"></p>
+	</div>
+	
+	
+	</div>
+<!-- End PopUp Casualties - Injured Page-->
+
+<!-- Start Casualties - Missing Page-->
+	<div data-role="page" id="rptCasualtiesMissing" >
+	<div data-role="header">
+		<h1>Casualties - Missing</h1>
+	</div>
+	<div role="main" class="ui-content">
+		
+		<form id="frmCasualtiesMissing">
+			<input type="hidden" id="txt_casm_city" name="txt_casm_city" />
+			<input type="text" id="txt_cm_name" name="txt_cm_name"  placeholder="Name" />
+			<input type="number" id="txt_cm_age" name="txt_cm_age" placeholder="Age" >
+			<input type="text" id="txt_cm_address" name="txt_cm_address" placeholder="Address">
+			<input type="text" id="txt_cm_incident" name="txt_cm_incident" placeholder="Incident">
+			<input type="text" id="txt_cm_incident_date" name="txt_cm_incident_date" data-role="date" placeholder="Date of Incident" >
+			<input type="text" id="txt_cm_status" name="txt_cm_status" placeholder="Status">
+			<select id="txt_cm_warnings" name="txt_cm_warnings" >
+				<option readonly>Where there warnings?</option>
+				<option value="yes">yes</option>
+				<option value="no">no</option>
+			</select>
+		</form>
+		
+	</div>
+	
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCasualtiesMissing">SUBMIT</button></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div data-role="popup" id="popupAfterReportDataSubmitMissing" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>SUBMITTED</h1>
+				</div>
+				<p id="popuptextReportDataSubmitMissing" style="text-align: center;"></p>
+	</div>
+	
+	
+	</div>
+<!-- End PopUp Casualties - Missing Page-->
+
+<!-- Start PopUp LifelineStatus Page-->
+	<div data-role="page" id="rptLifelineStatus" data-dialog="true">
+	<div data-role="header">
+		<h1>Lifeline Status</h1>
+	</div>
+	<div role="main" class="ui-content">
+		<a href="#rptLifelineStatusRoad" class="ui-btn ui-btn-d"  >Road and Bridges</a>
+		<a href="#rptLifelineStatusComm" class="ui-btn ui-btn-d">Communication</a>
+		<a href="#rptLifelineStatusPower" class="ui-btn ui-btn-d"  >Power</a>	
+	</div>
+	<div data-role="footer" data-position="fixed"></div>
+	</div>
+<!-- End PopUp Lifeline Statu Page-->
+
+<!-- Start LifelineStatus Road Page-->
+	<div data-role="page" id="rptLifelineStatusRoad" >
+		<div data-role="header">
+			<h1>Lifeline Status Road</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form id="frmLifelineStatusRoad">
+				<input type="hidden" id="txt_statusroad_city" name="txt_statusroad_city" />
+				<input type="text" id="txt_road_location" name="txt_road_location"  placeholder="Location" />
+				<input type="text" id="txt_road_status" name="txt_road_status" placeholder="Status" >
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" >
+				<ul>
+					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitLifelineStatusRoad">SUBMIT</button></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="popup" id="popupAfterReportDataSubmitRoad" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+					<div data-role="header">
+						<h1>SUBMITTED</h1>
+					</div>
+					<p id="popuptextReportDataSubmitRoad" style="text-align: center;"></p>
+		</div>
+	</div>
+<!-- End LifelineStatus Road Page-->
+
+<!-- Start LifelineStatus Comm Page-->
+	<div data-role="page" id="rptLifelineStatusComm" >
+	<div data-role="header">
+		<h1>Lifeline Status Communication</h1>
+	</div>
+	<div role="main" class="ui-content">
+		<form id="frmLifelineStatusComm">
+			<input type="hidden" id="txt_statusComm_city" name="txt_statusComm_city" />
+			<input type="text" id="txt_comm_location" name="txt_comm_location"  placeholder="Location" />
+			<input type="text" id="txt_comm_status" name="txt_comm_status" placeholder="Status" >
+		</form>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitLifelineStatusComm">SUBMIT</button></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="popup" id="popupAfterReportDataSubmitComm" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>SUBMITTED</h1>
+				</div>
+				<p id="popuptextReportDataSubmitComm" style="text-align: center;"></p>
+	</div>
+	</div>
+<!-- End LifelineStatus Comm Page-->
+
+<!-- Start LifelineStatus Power Page-->
+	<div data-role="page" id="rptLifelineStatusPower" >
+	<div data-role="header">
+		<h1>Lifeline Status Power</h1>
+	</div>
+	<div role="main" class="ui-content">
+		<form id="frmLifelineStatusPower">
+			<input type="hidden" id="txt_statusPower_city" name="txt_statusPower_city" />
+			<input type="text" id="txt_power_location" name="txt_power_location"  placeholder="Location" />
+			<input type="text" id="txt_power_status" name="txt_power_status" placeholder="Status" >
+		</form>
+	</div>
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitLifelineStatusPower">SUBMIT</button></li>
+			</ul>
+		</div>
+	</div>
+	<div data-role="popup" id="popupAfterReportDataSubmitPower" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>SUBMITTED</h1>
+				</div>
+				<p id="popuptextReportDataSubmitPower" style="text-align: center;"></p>
+	</div>
+	</div>
+<!-- End LifelineStatus Power Page-->
+
+
+<!-- Start PopUp Damaged Houses Page-->
+	<div data-role="page" id="rptDamageHouses" data-dialog="true">
+	<div data-role="header">
+		<h1>Damaged Houses</h1>
+	</div>
+	<div role="main" class="ui-content">
+		<a href="#rptDamagePartially" class="ui-btn ui-btn-d"  >Partially</a>
+		<a href="#rptDamageTotally" class="ui-btn ui-btn-d">Totally</a>		
+	</div>
+	<div data-role="footer" data-position="fixed"> </div>
+	</div>
+<!-- End PopUp Damaged Houses Page-->
+
+
+<!-- Start Damaged Houses Partially Page-->
+	<div data-role="page" id="rptDamagePartially" >
+		<div data-role="header">
+			<h1>Damaged Houses</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form id="frmDamagePartially">
+				<input type="hidden" id="txt_damagedP_city" name="txt_damageP_city" />
+				<input type="text" id="txt_damagedP_location" name="txt_damagedP_location"  placeholder="Location" />
+				<input type="number" id="txt_damagedP_number" name="txt_damagedP_number" placeholder="Number" >
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" >
+				<ul>
+					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitDamagePartially">SUBMIT</button></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="popup" id="popupAfterReportDataSubmitDamagePartially" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+					<div data-role="header">
+						<h1>SUBMITTED</h1>
+					</div>
+					<p id="popuptextReportDataSubmitDamagePartially" style="text-align: center;"></p>
+		</div>
+	</div>
+<!-- End Damaged Houses Partially Page-->
+
+<!-- Start Damaged Houses Totally  Page-->
+	<div data-role="page" id="rptDamageTotally" >
+		<div data-role="header">
+			<h1>Damaged Houses</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form id="frmDamageTotally">
+				<input type="hidden" id="txt_damagedT_city" name="txt_damageT_city" />
+				<input type="text" id="txt_damagedT_location" name="txt_damagedT_location"  placeholder="Location" />
+				<input type="number" id="txt_damagedT_number" name="txt_damagedT_number" placeholder="Number" >
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" >
+				<ul>
+					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitDamageTotally">SUBMIT</button></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="popup" id="popupAfterReportDataSubmitDamageTotally" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+					<div data-role="header">
+						<h1>SUBMITTED</h1>
+					</div>
+					<p id="popuptextReportDataSubmitDamageTotally" style="text-align: center;"></p>
+		</div>
+	</div>
+<!-- End Damaged Houses Totally Page-->
+
+
+
+<!-- Start PopUp Classes/Work Cancellation Page-->
+	<div data-role="page" id="rptCancellation" data-dialog="true">
+	<div data-role="header">
+		<h1>Cancellation</h1>
+	</div>
+	<div role="main" class="ui-content">
+	<form id="frmCancellation">
+		<input type="hidden" id="txt_cancel_pre" name="txt_cancel_pre" value="preschool" />
+	
+		<input type="hidden" id="txt_cancel_sec" name="txt_cancel_sec" value="sec" />
+		<input type="hidden" id="txt_cancel_ter" name="txt_cancel_ter" value="ter" />
+		<input type="hidden" id="txt_cancel_gov" name="txt_cancel_gov" value="gov" />
+		<a href="#rptCancellationPre" class="ui-btn ui-btn-d">Pre-School</a>
+		<a href="#rptCancellationElem" class="ui-btn ui-btn-d"  id="btnSubmitCancelelem">Elementary</a>
+		<a href="#rptCancellationSec" class="ui-btn ui-btn-d"  id="btnSubmitCancelsec">Secondary</a>
+		<a href="#rptCancellationTer" class="ui-btn ui-btn-d"  id="btnSubmitCancel3">Tertiary</a>
+		<a href="#rptCancellationGov" class="ui-btn ui-btn-d"  id="btnSubmitCancel4">Government Offices</a>
+	</form>
+	</div>
+	<div data-role="footer" data-position="fixed"> </div>
+	</div>
+<!-- End PopUp Cancellation Page-->
+
+
+
+
+<!-- Start Cancellation Page-->
+	<div data-role="page" id="rptCancellationPre" >
+		<div data-role="header">
+			<h1>Cancellation</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form id="frmCancellationPre">
+				<input type="hidden" id="txt_cancel_pre" name="txt_cancel_pre" value="pre-school" />
+				<input type="hidden" id="txt_cancelPre_city" name="txt_cancelPre_city" />
+				<input type="text" id="txt_cancelPre_location" name="txt_cancelPre_location"  placeholder="Location" />
+				<input type="text" id="txt_cancelPre_date" name="txt_cancelPre_date" data-role="date" placeholder="Date" >
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" >
+				<ul>
+					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCancellationPre">SUBMIT</button></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="popup" id="popupAfterReportDataSubmitCancellationPre" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+					<div data-role="header">
+						<h1>SUBMITTED</h1>
+					</div>
+					<p id="popuptextReportDataSubmitCancellationPre" style="text-align: center;"></p>
+		</div>
+	</div>
+<!-- End Cancellation Page-->
+
+<!-- Start Cancellation  Page-->
+	<div data-role="page" id="rptCancellationElem" >
+		<div data-role="header">
+			<h1>Cancellation</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form id="frmCancellationElem">
+				<input type="hidden" id="txt_cancel_elem" name="txt_cancel_elem" value="elementary" />
+				<input type="hidden" id="txt_cancelElem_city" name="txt_cancelElem_city" />
+				<input type="text" id="txt_cancelElem_location" name="txt_cancelElem_location"  placeholder="Location" />
+				<input type="text" id="txt_cancelElem_date" name="txt_cancelElem_date" data-role="date" placeholder="Date" >
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" >
+				<ul>
+					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCancellationElem">SUBMIT</button></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="popup" id="popupAfterReportDataSubmitCancellationElem" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+					<div data-role="header">
+						<h1>SUBMITTED</h1>
+					</div>
+					<p id="popuptextReportDataSubmitCancellationElem" style="text-align: center;"></p>
+		</div>
+	</div>
+<!-- End Cancellation Page-->
+
+<!-- Start Cancellation  Page-->
+	<div data-role="page" id="rptCancellationSec" >
+		<div data-role="header">
+			<h1>Cancellation</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form id="frmCancellationSec">
+				<input type="hidden" id="txt_cancel_sec" name="txt_cancel_sec" value="secondary" />
+				<input type="hidden" id="txt_cancelSec_city" name="txt_cancelSec_city" />
+				<input type="text" id="txt_cancelSec_location" name="txt_cancelSec_location"  placeholder="Location" />
+				<input type="text" id="txt_cancelSec_date" name="txt_cancelSec_date" data-role="date" placeholder="Date" >
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" >
+				<ul>
+					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCancellationSec">SUBMIT</button></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="popup" id="popupAfterReportDataSubmitCancellationSec" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+					<div data-role="header">
+						<h1>SUBMITTED</h1>
+					</div>
+					<p id="popuptextReportDataSubmitCancellationSec" style="text-align: center;"></p>
+		</div>
+	</div>
+<!-- End Cancellation Page-->
+
+<!-- Start Cancellation  Page-->
+	<div data-role="page" id="rptCancellationTer" >
+		<div data-role="header">
+			<h1>Cancellation</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form id="frmCancellationTer">
+				<input type="hidden" id="txt_cancel_ter" name="txt_cancel_ter" value="tertiary" />
+				<input type="hidden" id="txt_cancelTer_city" name="txt_cancelTer_city" />
+				<input type="text" id="txt_cancelTer_location" name="txt_cancelTer_location"  placeholder="School" />
+				<input type="text" id="txt_cancelTer_date" name="txt_cancelTer_date" data-role="date" placeholder="Date" >
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" >
+				<ul>
+					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCancellationTer">SUBMIT</button></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="popup" id="popupAfterReportDataSubmitCancellationTer" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+					<div data-role="header">
+						<h1>SUBMITTED</h1>
+					</div>
+					<p id="popuptextReportDataSubmitCancellationTer" style="text-align: center;"></p>
+		</div>
+	</div>
+<!-- End Cancellation Page-->
+
+<!-- Start Cancellation  Page-->
+	<div data-role="page" id="rptCancellationGov" >
+		<div data-role="header">
+			<h1>Cancellation</h1>
+		</div>
+		<div role="main" class="ui-content">
+			<form id="frmCancellationGov">
+				<input type="hidden" id="txt_cancel_gov" name="txt_cancel_gov" value="government" />
+				<input type="hidden" id="txt_cancelGov_city" name="txt_cancelGov_city" />
+				<input type="text" id="txt_cancelGov_location" name="txt_cancelGov_location"  placeholder="Agency" />
+				<input type="text" id="txt_cancelGov_date" name="txt_cancelGov_date" data-role="date" placeholder="Date" >
+			</form>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar" >
+				<ul>
+					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCancellationGov">SUBMIT</button></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="popup" id="popupAfterReportDataSubmitCancellationGov" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+					<div data-role="header">
+						<h1>SUBMITTED</h1>
+					</div>
+					<p id="popuptextReportDataSubmitCancellationGov" style="text-align: center;"></p>
+		</div>
+	</div>
+<!-- End Cancellation Page-->
+
+
+
+
+
+
+<!-- Start Initial Disaster Incidents Page-->
+	<div data-role="page" id="rptCalamity" >
+	<div data-role="header">
+		<h1>Calamity</h1>
+	</div>
+	<div role="main" class="ui-content">
+		<form id="frmCalamity">
+			<input type="hidden" id="txt_calamity_city" name="txt_calamity_city" />
+			<input type="text" id="txt_calamity_location" name="txt_cancelTer_location"  placeholder="Location" />
+			<input type="text" id="txt_calamity_resonum" name="txt_calamity_resonum" placeholder="Resolution Number" >
+		</form>
+		
+	</div>
+	
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitInitialDisasterIncident">SUBMIT</button></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div data-role="popup" id="popupAfterReportDataSubmit" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>SUBMITTED</h1>
+				</div>
+				<p id="popuptextReportDataSubmit" style="text-align: center;"></p>
+	</div>
+	
+	
+	</div>
+<!-- End PopUp Disaster Incidents Page-->
+
+
+<!-- my code ends here -->
 </body>
 </html>
