@@ -18,7 +18,7 @@
 	
 	<preference name="phonegap-version" value="3.7.0" />
 	<preference name="orientation" value="portrait" />
-	<preference name="fullscreen" value="true" />
+	<preference name="fullscreen" value="false" />
 	
 	<access origin="*" subdomains="true" />
 	<access uri="*" subdomains="true" />
