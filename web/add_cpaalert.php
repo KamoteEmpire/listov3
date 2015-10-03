@@ -16,5 +16,5 @@ for( $i = 0 ; $i < $length ; $i++){
 $sql = "INSERT INTO user_enlist(id, subject_enlisted, user_id) VALUES (NULL, '".$subjects[$i]."', '".$studid."')";
 $result = mysqli_query($conn, $sql);	
 }
-
+//hello
 ?>
