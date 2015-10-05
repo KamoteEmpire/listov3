@@ -78,6 +78,30 @@
     padding: 5px;
     display: none;
 }
+
+
+	.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  background: red;
+  cursor: inherit;
+  display: block;
+}
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
 	</style>
 	
 	<style type="text/css">
@@ -183,6 +207,31 @@
 			
 		});
   </script>
+  
+  <script>
+	$(document).on('change', '.btn-file :file', function() {
+  var input = $(this),
+      numFiles = input.get(0).files ? input.get(0).files.length : 1,
+      label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+  input.trigger('fileselect', [numFiles, label]);
+});
+
+$(document).ready( function() {
+    $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+        
+        var input = $(this).parents('.input-group').find(':text'),
+            log = numFiles > 1 ? numFiles + ' files selected' : label;
+        
+        if( input.length ) {
+            input.val(log);
+        } else {
+            if( log ) alert(log);
+        }
+        
+    });
+});
+  
+  </script>
 	
 </head>
 
@@ -274,6 +323,55 @@
             <div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 				<img src="img/ajax-loader.gif" id="loading-indicator" style="display:none" />
+				
+				<form role="form" id="frmMyImage" name="frmMyImage" enctype="multipart/form-data"  action="http://iligtas.ph/listo/add_hotdogpath.php" method="post" class="frmImageUpload">
+					<label>Upload Image File:</label><br/>
+					
+					<!--<div class="input-group">
+						<span class="input-group-btn">
+							<span class="btn btn-primary btn-file">
+								Browse&hellip; <input name="userImage" type="file" >
+							</span>
+						</span>
+						<input type="text" class="form-control" readonly>
+					</div><br/>-->
+					<input name="userImage" type="file" class="inputFile btn-file" /><br/>
+					<input name="txtTyphoon" type="text" class="form-control input-lg" placeholder="Enter Typhoon"><br/>
+					<div class="form-group text-center">
+					<input id="btnSubmitTyphoon" type="submit" class="btn btn-lg btn-outline" style="background-color: red; color: white;" value="SUBMIT TYPHOON PATH" />
+					</div>
+					<div class="form-group text-center">
+						<button id="btnSubmittingTyphoon" type="button" class="btn btn-lg btn-outline" style="background-color: red; color:white; display: none;">
+							<span class="glyphicon glyphicon-refresh spinning"></span>  SUBMITTING...    
+						</button>
+					</div>
+					
+					<!-- modal start -->
+					<div class="modal fade" id="myModalImageSuccess" role="dialog">
+						<div class="modal-dialog">
+    
+						<!-- Modal content-->
+						  <div class="modal-content">
+							<div class="modal-header">
+							  <button type="button" class="close" data-dismiss="modal">&times;</button>
+							  <h4 class="modal-title">Modal Header</h4>
+							</div>
+							<div class="modal-body">
+							  <p>Hotdog Path has been submitted.</p>
+							</div>
+							<div class="modal-footer">
+							  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						  </div>
+						  
+						</div>
+					</div>
+					
+					
+					<!-- modal end -->
+				</form>
+				
+				
 				<form role="form" id="frmSubmitReport">
 					<div class="form-group">
 							<select class="form-control input-lg">
@@ -807,9 +905,9 @@
     <script src="js/classie.js"></script>
     <script src="js/cbpAnimatedHeader.js"></script>
 
-    <!-- Contact Form JavaScript -->
+    <!-- Contact Form JavaScript 
     <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="js/contact_me.js"></script>-->
 
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
