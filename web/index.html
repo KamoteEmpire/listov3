@@ -114,6 +114,7 @@ input[readonly] {
   </style>
   
   <script src="js/jquery.js"></script>
+  <script src="js/cpaadd.js"></script>
   <script>
 		$(function(){
 			$('#txtRegion').change(function(){
@@ -324,7 +325,9 @@ $(document).ready( function() {
 				<div class="col-lg-8 col-lg-offset-2">
 				<img src="img/ajax-loader.gif" id="loading-indicator" style="display:none" />
 				
-				<form role="form" id="frmMyImage" name="frmMyImage" enctype="multipart/form-data"  action="http://iligtas.ph/listo/add_hotdogpath.php" method="post" class="frmImageUpload">
+				<!--<form role="form" id="frmMyImage" name="frmMyImage" enctype="multipart/form-data"  action="http://iligtas.ph/listo/add_hotdogpath.php" method="post" class="frmImageUpload">
+				-->	
+				<form role="form" id="frmMyImage" name="frmMyImage" enctype="multipart/form-data"  action="add_hotdogpath.php" method="post" class="frmImageUpload">
 					<label>Upload Image File:</label><br/>
 					
 					<!--<div class="input-group">

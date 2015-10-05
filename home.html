@@ -79,7 +79,8 @@ meter::-webkit-meter-even-less-good-value {
          		{
 				$.each(myData, function(key, value) {
 					$('#imgHotdogPath').attr('src', value['hotdogpath']);
-							
+					
+					$('#txtTyphoonName').html('<p>'+'Typhoon Path '+'for '+'<strong>'+value['typhoon']+'</strong>'+'</p>'+'<p>'+'Last Updated : '+'<strong>'+value['timestamp']+'</strong>'+'</p>');
 				});
 					$.mobile.loading("hide");
 				});
@@ -96,7 +97,7 @@ meter::-webkit-meter-even-less-good-value {
 	</div>
 	<div role="main" class="ui-content">
 		<img id="imgHotdogPath" src="images/typhoonpath2.png" style="width:95%;margin-left:auto;margin-right:auto;display:block">
-		<div ><h3 style="text-align: center;">Typhoon Path Forecast</h3></div>
+		<div id="txtTyphoonName">loading...</div>
 		<a href="#popupUnderConstruction" class="ui-btn ui-btn-b" data-rel="popup" data-position-to="window" data-transition="slidedown" >Upload Proof of Service</a>
 		<a href="#pagePreMonitor" class="ui-btn ui-btn-c">LGU Actions</a>
 		<a href="#reportingPage"  class="ui-btn ui-btn-d">Reporting</a>

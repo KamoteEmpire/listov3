@@ -1,8 +1,8 @@
 <?php
 if(count($_FILES) > 0) {
 if(is_uploaded_file($_FILES['userImage']['tmp_name'])) {
-mysql_connect("localhost", "iligtasp_listo", "Aa7654321");
-mysql_select_db ("iligtasp_listo");
+mysql_connect("localhost", "root", "");
+mysql_select_db ("db_listo");
 $typhoon=$_POST['txtTyphoon'];
 
 $imgData =addslashes(file_get_contents($_FILES['userImage']['tmp_name']));
