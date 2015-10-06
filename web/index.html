@@ -160,7 +160,8 @@ input[readonly] {
 						$('#txtProvince').append($('<option>', {value:'Tarlac', text:'Tarlac'}));
 						$('#txtProvince').append($('<option>', {value:'Zambales', text:'Zambales'}));
 					}
-			
+				
+				//start of Zambales
 				$('#txtProvince').change(function(){
 					if($('#txtProvince').val()=="Zambales"){
 								$('#panel').html($('<span>', {value:'', text:'Please Select LGUs'}));
@@ -180,6 +181,9 @@ input[readonly] {
 								$("#panel").slideDown("slow");
 					}
 				});
+				//end of Zambales
+				
+				
 					
 			});
 			

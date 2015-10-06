@@ -1,32 +1,34 @@
 $(document).ready(function(){
 	$('#btnSubmitReport').click(function(){
+		var alertLevel = $('#txtAlertLevel').val();
+		var region = $('#txtRegion').val();
+		var province = $('#txtProvince').val();
 		var txtLGUS =[];
         jQuery.each($('input:checkbox:checked'), function(index, item){
           txtLGUS.push(item.value);
         });
 		
-		$('#btnSubmitReport').hide();
-		$('#btnSubmitting').fadeIn();
-		var frmSubmitReport = $("#frmSubmitReport");
+		alert(alertLevel);
+		alert(region);
+		alert(province);
+		alert(txtLGUS);
+		
 		$.ajax({
-					url: 'add_cpaalert.php',						
-					type: 'POST',
-					
-					dataType:'html',
-						data:{
-						studidnum : studid,
-						cities : txtLGUS,
-						length : txtLGUS.length
-					},
-					success: function (data) {
-						$('#btnSubmitting').hide();
-						$('#btnSubmitReport').fadeIn();
-					},
-					error: function(data){
-						$.mobile.loading("hide");
-						alert(data);
-					}
-		});	
+          type:'GET',
+          url: 'add_cpaalert.php',
+          dataType:'html',
+          data:{
+            txtAlertLevel : alertLevel,
+			txtRegion : region,
+			txtProvince : province,
+            myLGUS : txtLGUS,
+            length : txtLGUS.length
+          },
+          success: function(data){
+           alert(data);
+          }
+        }); 
+		
 	});
 
 	

@@ -4,17 +4,22 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $conn = mysqli_connect($servername, $username, $password);
-mysqli_select_db($conn, "enlistment");
-$studid=$_GET['studidnum'];
-$subjects=$_GET['subject'];
+mysqli_select_db($conn, "db_listo");
+
+$alertLevel=$_GET['txtAlertLevel'];
+$region=$_GET['txtRegion'];
+$province=$_GET['txtProvince'];
+$lgus=$_GET['myLGUS'];
 $length = $_GET['length'];
+
 for( $i = 0 ; $i < $length ; $i++){
-$sql = "DELETE FROM user_enlist WHERE user_id='". $studid."' AND subject_enlisted= '".$subjects[$i]."' ";
+$sql = "INSERT INTO tbl_abc_status(fld_id, fld_alertlevel, fld_region, fld_province, fld_lgu, fld_timestamp) VALUES (NULL, '".$alertLevel."', '".$region."', '".$province."', '".$lgus[$i]."', CURRENT_TIMESTAMP)";
 $result = mysqli_query($conn, $sql);	
 }
-for( $i = 0 ; $i < $length ; $i++){
-$sql = "INSERT INTO user_enlist(id, subject_enlisted, user_id) VALUES (NULL, '".$subjects[$i]."', '".$studid."')";
-$result = mysqli_query($conn, $sql);	
+if($result){
+	echo "Success";
 }
-//hello
+else{
+	echo "Failed";
+}
 ?>
