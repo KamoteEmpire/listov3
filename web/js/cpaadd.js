@@ -1,22 +1,22 @@
 $(document).ready(function(){
 	$('#btnSubmitReport').click(function(){
-		var cities =[];
+		var txtLGUS =[];
         jQuery.each($('input:checkbox:checked'), function(index, item){
-          cities.push(item.value);
+          txtLGUS.push(item.value);
         });
 		
 		$('#btnSubmitReport').hide();
 		$('#btnSubmitting').fadeIn();
 		var frmSubmitReport = $("#frmSubmitReport");
 		$.ajax({
-					url: 'http://iligtas.ph/chews/add_report.php',						
+					url: 'add_cpaalert.php',						
 					type: 'POST',
 					
 					dataType:'html',
 						data:{
 						studidnum : studid,
-						cities : cities,
-						length : cities.length
+						cities : txtLGUS,
+						length : txtLGUS.length
 					},
 					success: function (data) {
 						$('#btnSubmitting').hide();

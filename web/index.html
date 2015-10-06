@@ -165,44 +165,25 @@ input[readonly] {
 					if($('#txtProvince').val()=="Zambales"){
 								$('#panel').html($('<span>', {value:'', text:'Please Select LGUs'}));
 								 $('#panel').append('<br/><input type="checkbox" value="Botolan" /> Botolan<br />');
-								 $('#panel').append('<input type="checkbox" value="Cabangan" /> Cabangan<br />');
-								 $('#panel').append('<input type="checkbox" value="Candelaria" /> Candelaria<br />');
-								 $('#panel').append('<input type="checkbox" value="Castillejos" /> Castillejos<br />');
-								 $('#panel').append('<input type="checkbox" value="Iba" /> Iba<br />');
-								 $('#panel').append('<input type="checkbox" value="Masinloc" /> Masinloc<br />');
-								 $('#panel').append('<input type="checkbox" value="Palauig" /> Palauig<br />');
-								 $('#panel').append('<input type="checkbox" value="San Antonio" /> San Antonio<br />');
-								 $('#panel').append('<input type="checkbox" value="San Felipe" /> San Felipe<br />');
-								 $('#panel').append('<input type="checkbox" value="San Marcelino" /> San Marcelino<br />');
-								 $('#panel').append('<input type="checkbox" value="San Narciso" /> San Narciso<br />');
-								 $('#panel').append('<input type="checkbox" value="Sta. Cruz" /> Sta. Cruz<br />');
-								 $('#panel').append('<input type="checkbox" value="Subic" /> Subic<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="Cabangan" /> Cabangan<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="Candelaria" /> Candelaria<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="Castillejos" /> Castillejos<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="Iba" /> Iba<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="Masinloc" /> Masinloc<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="Palauig" /> Palauig<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="San Antonio" /> San Antonio<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="San Felipe" /> San Felipe<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="San Marcelino" /> San Marcelino<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="San Narciso" /> San Narciso<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="Sta. Cruz" /> Sta. Cruz<br />');
+								 $('#panel').append('<input type="checkbox" name="txtLGUS" value="Subic" /> Subic<br />');
 								$("#panel").slideDown("slow");
 					}
 				});
 					
 			});
 			
-				$('#btn-Submit').click(function(){
-						var LGUS =[];
-						jQuery.each($('input:checkbox:checked'), function(index, item){
-						subjects.push(item.value);
-				});
-				$.ajax({
-						type:'GET',
-						url: 'enlist.php',
-						dataType:'html',
-						data:{
-						region : region,
-						province : province,
-						LGUS : LGUS,
-						length : LGUS.length
-				},
-						success: function(data){
-							alert("Test");
-				}
-				}); 
-				});
+				
 			
 			
 			
@@ -377,7 +358,7 @@ $(document).ready( function() {
 				
 				<form role="form" id="frmSubmitReport">
 					<div class="form-group">
-							<select class="form-control input-lg">
+							<select class="form-control input-lg" id="txtAlertLevel" name="txtAlertLevel">
 							<option>Please Select Alert Level</option>
 							<option value="alpha">Alpha</option>
 							<option value="bravo">Bravo</option>
