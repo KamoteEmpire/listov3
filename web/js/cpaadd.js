@@ -1,15 +1,22 @@
 $(document).ready(function(){
-	
-	$.ajax({
+	$('#txtSelectRegion').change(function(){
+		var selectedRegion = $('#txtSelectRegion').val();
+		$.ajax({
           type:'GET',
           url: 'view_abc_status.php',
           dataType:'html',
           data:{
+			  selectedRegions : selectedRegion 
           },
           success: function(data){
 			$('#displayCPAAlert').html(data);
           }
         }); 
+	
+		
+		
+		
+	});
 	
 	
 	
