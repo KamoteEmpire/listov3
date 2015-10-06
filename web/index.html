@@ -425,44 +425,42 @@ $(document).ready( function() {
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Charts</h2>
+                    <h2>Alert Levels</h2>
                     <hr class="star-primary">
                 </div>
             </div>
 			<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
 				<div class="form-group">
-						<select class="form-control input-lg" id="txtBarangay" name="txtBarangay" >
-							<option>Please Select Barangay</option>
-							<option value="Asinan">Asinan</option>
-							<option value="Banicain">Banicain</option>
-							<option value="Barreto">Barreto</option>
-							<option value="East Bajac-bajac">East Bajac-bajac</option>
-							<option value="East Tapinac">East Tapinac</option>
-							<option value="Gordon Heights">Gordon Heights</option>
-							<option value="Kalaklan">Kalaklan</option>
-							<option value="Mabayuan">Mabayuan</option>
-							<option value="New Cabalan">New Cabalan</option>
-							<option value="New Ilalim">New Ilalim</option>
-							<option value="New Kababae">New Kababae</option>
-							<option value="New Kalalake">New Kalalake</option>
-							<option value="Old Cabalan">Old Cabalan</option>
-							<option value="Pag-asa">Pag-asa</option>
-							<option value="Santa Rita">Santa Rita</option>
-							<option value="West Bajac-bajac">West Bajac-bajac</option>
-							<option value="West Tapinac">West Tapinac</option>
+						<select class="form-control input-lg" id="txtSelectRegion" >
+							<option>Please Select Region</option>
+							<option value="ARMM">ARMM</option>
+							<option value="CAR">CAR</option>
+							<option value="1">I</option>
+							<option value="2">II</option>
+							<option value="3">III</option>
+							<option value="4a">IV-A</option>
+							<option value="4b">IV-B</option>
+							<option value="NCR">NCR</option>
+							<option value="5">V</option>
+							<option value="6">VI</option>
+							<option value="7">VII</option>
+							<option value="8">VIII</option>
+							<option value="9">IX</option>
+							<option value="10">X</option>
+							<option value="11">XI</option>
+							<option value="12">XII</option>
+							<option value="13">XIII</option>
 						</select>
 					</div>
 			</div>
 			</div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    
-						<div id="canvas-holder" >
-							<canvas id="chart-area" width="300" height="300"/>
-						</div>
+                   
+				   <div id="displayCPAAlert">
+						Loading...
+				   </div>
 					
                 </div>
             </div>

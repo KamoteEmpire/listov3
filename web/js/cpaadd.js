@@ -1,4 +1,19 @@
 $(document).ready(function(){
+	
+	$.ajax({
+          type:'GET',
+          url: 'view_abc_status.php',
+          dataType:'html',
+          data:{
+          },
+          success: function(data){
+			$('#displayCPAAlert').html(data);
+          }
+        }); 
+	
+	
+	
+	
 	$('#btnSubmitReport').click(function(){
 		var alertLevel = $('#txtAlertLevel').val();
 		var region = $('#txtRegion').val();
