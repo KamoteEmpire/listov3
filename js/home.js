@@ -474,7 +474,7 @@ for(var dCounter=0;dCounter<12;dCounter++){
 			
 			$('#btnSubmitPreMonitor').click(function(){
 				var frmHiddenPreMonitor = $("#frmLGUActions");
-				var myTyphoon = localStorage.getItem('dataTyphoon');
+				var myTyphoon = localStorage.getItem('datatyphoon');
 				var preMonitorTyphoon = myTyphoon;
 					$('#hiddenPreMonitorTyphoon').val(preMonitorTyphoon);
 				var preMonitorRegion = localStorage.getItem('dataregion');
