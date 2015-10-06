@@ -81,6 +81,7 @@ meter::-webkit-meter-even-less-good-value {
 					$('#imgHotdogPath').attr('src', value['hotdogpath']);
 					
 					$('#txtTyphoonName').html('<p>'+'Typhoon Path '+'for '+'<strong>'+value['typhoon']+'</strong>'+'</p>'+'<p>'+'Last Updated : '+'<strong>'+value['timestamp']+'</strong>'+'</p>');
+					localStorage.setItem("datatyphoon",value['typhoon']);
 				});
 					$.mobile.loading("hide");
 				});

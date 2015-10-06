@@ -461,6 +461,7 @@ for(var dCounter=0;dCounter<12;dCounter++){
 				localStorage.setItem('dataregion', '');
 				localStorage.setItem('dataprovince', '');
 				localStorage.setItem('datacity', '');
+				localStorage.setItem('datatyphoon', '');
 				$("#popuptextLogout").html("<strong>Thank you for using LISTO.</strong>");	
 					$( "#popupAfterLogout" ).popup();
 					$( "#popupAfterLogout" ).popup( "open", { 
@@ -473,7 +474,8 @@ for(var dCounter=0;dCounter<12;dCounter++){
 			
 			$('#btnSubmitPreMonitor').click(function(){
 				var frmHiddenPreMonitor = $("#frmLGUActions");
-				var preMonitorTyphoon = "Dodong";
+				var myTyphoon = localStorage.getItem('dataTyphoon');
+				var preMonitorTyphoon = myTyphoon;
 					$('#hiddenPreMonitorTyphoon').val(preMonitorTyphoon);
 				var preMonitorRegion = localStorage.getItem('dataregion');
 					$('#hiddenPreMonitorRegion').val(preMonitorRegion);
