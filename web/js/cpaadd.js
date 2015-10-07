@@ -3,7 +3,7 @@ $(document).ready(function(){
 		var selectedRegion = $('#txtSelectRegion').val();
 		$.ajax({
           type:'GET',
-          url: 'view_abc_status.php',
+          url: 'http://iligtas.ph/listo/view_abc_status.php',
           dataType:'html',
           data:{
 			  selectedRegions : selectedRegion 
@@ -37,7 +37,7 @@ $(document).ready(function(){
 		
 		$.ajax({
           type:'GET',
-          url: 'add_cpaalert.php',
+          url: 'http://iligtas.ph/listo/add_cpaalert.php',
           dataType:'html',
           data:{
             txtAlertLevel : alertLevel,

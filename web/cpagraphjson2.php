@@ -12,7 +12,7 @@ IN (
 
 SELECT MAX( fld_reportid ) 
 FROM tbl_premonitor2
-GROUP BY fld_region
+GROUP BY fld_city
 )
 ORDER BY fld_city ASC";
 

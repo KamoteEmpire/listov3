@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	$('#btnSubmitReport').click(function(){
+	/*$('#btnSubmitReport').click(function(){
 		$('#btnSubmitReport').hide();
 		$('#btnSubmitting').fadeIn();
 		var frmSubmitReport = $("#frmSubmitReport");
@@ -19,7 +19,7 @@ $(document).ready(function(){
 		});	
 	});
 
-	
+	*/
 
 
 
