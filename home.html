@@ -524,6 +524,7 @@ meter::-webkit-meter-even-less-good-value {
 	</div>
 <!-- End Report Affected population Page-->
 
+
 <!-- my code starts here -->
 <!-- Start PopUp Casualties Page-->
 	<div data-role="page" id="rptCasualties" data-dialog="true">
@@ -549,21 +550,135 @@ meter::-webkit-meter-even-less-good-value {
 		<h1>Casualties - Dead</h1>
 	</div>
 	<div role="main" class="ui-content">
-		
+			
 		<form id="frmCasualtiesDead">
 			<input type="hidden" id="txt_casd_city" name="txt_casd_city" />
-			<input type="text" id="txt_cd_name" name="txt_cd_name"  placeholder="Name" />
-			<input type="number" id="txt_cd_age" name="txt_cd_age" placeholder="Age" >
-			<select placeholder="gender"  id="txt_cd_gender" name="txt_cd_gender"  >
-				<option readonly>--Gender--</option>
-				<option value="female">Female</option>
-				<option value="male">Male</option>
-			</select>
+			<input type="hidden" id="txt_casd_typhoon" name="txt_casd_typhoon" />
+			<input type="text" id="txt_cd_name" name="txt_cd_name"  placeholder="Name">
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><input type="number" id="txt_cd_age" name="txt_cd_age" placeholder="Age"></div>
+				<div class="ui-block-b">
+				<select placeholder="gender"  id="txt_cd_gender" name="txt_cd_gender" data-mini="true" >
+					<option value="female">Female</option>
+					<option value="male">Male</option>
+				</select></div>	   
+			</fieldset>
+			
+
 			<input type="text" id="txt_cd_address" name="txt_cd_address" placeholder="Address">
 			<input type="text" id="txt_cause_of_death" name="txt_cause_of_death" placeholder="Cause of Death" >
-			<input type="text" id="txt_date_of_death" name="txt_date_of_death" data-role="date" placeholder="Date of Death">
+			<label>Death of Date:</label>
+			<fieldset data-role="controlgroup" data-type="horizontal">
+			<select name="txt_death_month" id="txt_death_month" data-mini="true">
+					<option value="01">January</option>
+					<option value="02">February</option>
+					<option value="03">March</option>
+					<option value="04">April</option>
+					<option value="05">May</option>
+					<option value="06">June</option>
+					<option value="07">July</option>
+					<option value="08">August</option>
+					<option value="09">September</option>
+					<option value="10">October</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
+				</select>
+				<select name="txt_death_day" id="txt_death_day" data-mini="true">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>
+					<option value="23">23</option>
+					<option value="24">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+				</select>
+				<select name="txt_death_year" id="txt_death_year" data-mini="true">
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+				</select>
+				</fieldset>
+			
 			<input type="text" id="txt_cd_incident" name="txt_cd_incident" placeholder="Incident" >
-			<input type="text" id="txt_cd_incident_date" name="txt_cd_incident_date" data-role="date" placeholder="Date of Incident" >
+			<!--<input type="text" id="txt_cd_incident_date" name="txt_cd_incident_date" data-role="date" placeholder="Date of Incident" >-->
+				<label>Incident Date:</label>
+			<fieldset data-role="controlgroup" data-type="horizontal">
+				<select name="txt_incident_month" id="mbirth" data-mini="true">
+					<option value="01">January</option>
+					<option value="02">February</option>
+					<option value="03">March</option>
+					<option value="04">April</option>
+					<option value="05">May</option>
+					<option value="06">June</option>
+					<option value="07">July</option>
+					<option value="08">August</option>
+					<option value="09">September</option>
+					<option value="10">October</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
+				</select>
+				<select name="txt_incident_day" id="dbirth" data-mini="true">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>
+					<option value="23">23</option>
+					<option value="24">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+				</select>
+				<select name="txt_incident_year" id="ybirth" data-mini="true">
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+				</select>
+				</fieldset>
+			
 			<select id="txt_cd_warnings" name="txt_cd_warnings" >
 				<option readonly>Where there warnings?</option>
 				<option value="yes">yes</option>
@@ -601,17 +716,77 @@ meter::-webkit-meter-even-less-good-value {
 		
 		<form id="frmCasualtiesInjured">
 			<input type="hidden" id="txt_casi_city" name="txt_casi_city" />
+			<input type="hidden" id="txt_casi_typhoon" name="txt_casi_typhoon" />
 			<input type="text" id="txt_ci_name" name="txt_ci_name"  placeholder="Name" />
-			<input type="number" id="txt_ci_age" name="txt_ci_age" placeholder="Age" >
-			<select placeholder="gender"  id="txt_ci_gender" name="txt_ci_gender"  >
-				<option readonly>--Gender--</option>
-				<option value="female">Female</option>
-				<option value="male">Male</option>
-			</select>
+			<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><input type="number" id="txt_ci_age" name="txt_ci_age" placeholder="Age" ></div>
+				<div class="ui-block-b">
+					<select placeholder="gender"  id="txt_ci_gender" name="txt_ci_gender" data-mini="true" >
+						<option value="female">Female</option>
+						<option value="male">Male</option>
+					</select>
+				</div>
+			</fieldset>
 			<input type="text" id="txt_ci_address" name="txt_ci_address" placeholder="Address">
 			<input type="text" id="txt_ci_injury" name="txt_ci_injury" placeholder="Injury" >
 			<input type="text" id="txt_ci_incident" name="txt_ci_incident" placeholder="Incident">
-			<input type="text" id="txt_ci_incident_date" name="txt_ci_incident_date" data-role="date" placeholder="Date of Incident" >
+		
+			<label>Date of Incident:</label>
+			<fieldset data-role="controlgroup" data-type="horizontal">
+			<select name="txt_ciIncident_month" id="txt_ciIncident_month" data-mini="true">
+					<option value="01">January</option>
+					<option value="02">February</option>
+					<option value="03">March</option>
+					<option value="04">April</option>
+					<option value="05">May</option>
+					<option value="06">June</option>
+					<option value="07">July</option>
+					<option value="08">August</option>
+					<option value="09">September</option>
+					<option value="10">October</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
+				</select>
+				<select name="txt_ciIncident_day" id="txt_ciIncident_day" data-mini="true">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>
+					<option value="23">23</option>
+					<option value="24">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+				</select>
+				<select name="txt_ciIncident_year" id="txt_ciIncident_year" data-mini="true">
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+				</select>
+				</fieldset>
+			
+			
 			<select id="txt_ci_warnings" name="txt_ci_warnings" >
 				<option readonly>Where there warnings?</option>
 				<option value="yes">yes</option>
@@ -649,11 +824,67 @@ meter::-webkit-meter-even-less-good-value {
 		
 		<form id="frmCasualtiesMissing">
 			<input type="hidden" id="txt_casm_city" name="txt_casm_city" />
+			<input type="hidden" id="txt_casm_typhoon" name="txt_casm_typhoon" />
 			<input type="text" id="txt_cm_name" name="txt_cm_name"  placeholder="Name" />
 			<input type="number" id="txt_cm_age" name="txt_cm_age" placeholder="Age" >
 			<input type="text" id="txt_cm_address" name="txt_cm_address" placeholder="Address">
 			<input type="text" id="txt_cm_incident" name="txt_cm_incident" placeholder="Incident">
-			<input type="text" id="txt_cm_incident_date" name="txt_cm_incident_date" data-role="date" placeholder="Date of Incident" >
+			<!--<input type="text" id="txt_cm_incident_date" name="txt_cm_incident_date" data-role="date" placeholder="Date of Incident" >-->
+			<label>Date of Incident:</label>
+			<fieldset data-role="controlgroup" data-type="horizontal">
+			<select name="txt_cmIncident_month" id="txt_cmIncident_month" data-mini="true">
+					<option value="01">January</option>
+					<option value="02">February</option>
+					<option value="03">March</option>
+					<option value="04">April</option>
+					<option value="05">May</option>
+					<option value="06">June</option>
+					<option value="07">July</option>
+					<option value="08">August</option>
+					<option value="09">September</option>
+					<option value="10">October</option>
+					<option value="11">November</option>
+					<option value="12">December</option>
+				</select>
+				<select name="txt_cmIncident_day" id="txt_cmIncident_day" data-mini="true">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+					<option value="13">13</option>
+					<option value="14">14</option>
+					<option value="15">15</option>
+					<option value="16">16</option>
+					<option value="17">17</option>
+					<option value="18">18</option>
+					<option value="19">19</option>
+					<option value="20">20</option>
+					<option value="21">21</option>
+					<option value="22">22</option>
+					<option value="23">23</option>
+					<option value="24">24</option>
+					<option value="25">25</option>
+					<option value="26">26</option>
+					<option value="27">27</option>
+					<option value="28">28</option>
+					<option value="29">29</option>
+					<option value="30">30</option>
+					<option value="31">31</option>
+				</select>
+				<select name="txt_cmIncident_year" id="txt_cmIncident_year" data-mini="true">
+					<option value="2014">2014</option>
+					<option value="2015">2015</option>
+				</select>
+				</fieldset>
+			
 			<input type="text" id="txt_cm_status" name="txt_cm_status" placeholder="Status">
 			<select id="txt_cm_warnings" name="txt_cm_warnings" >
 				<option readonly>Where there warnings?</option>
@@ -705,6 +936,7 @@ meter::-webkit-meter-even-less-good-value {
 		<div role="main" class="ui-content">
 			<form id="frmLifelineStatusRoad">
 				<input type="hidden" id="txt_statusroad_city" name="txt_statusroad_city" />
+				<input type="hidden" id="txt_statusroad_typhoon" name="txt_statusroad_typhoon" />
 				<input type="text" id="txt_road_location" name="txt_road_location"  placeholder="Location" />
 				<input type="text" id="txt_road_status" name="txt_road_status" placeholder="Status" >
 			</form>
@@ -733,6 +965,7 @@ meter::-webkit-meter-even-less-good-value {
 	<div role="main" class="ui-content">
 		<form id="frmLifelineStatusComm">
 			<input type="hidden" id="txt_statusComm_city" name="txt_statusComm_city" />
+			<input type="hidden" id="txt_statusComm_typhoon" name="txt_statusComm_typhoon" />
 			<input type="text" id="txt_comm_location" name="txt_comm_location"  placeholder="Location" />
 			<input type="text" id="txt_comm_status" name="txt_comm_status" placeholder="Status" >
 		</form>
@@ -761,6 +994,7 @@ meter::-webkit-meter-even-less-good-value {
 	<div role="main" class="ui-content">
 		<form id="frmLifelineStatusPower">
 			<input type="hidden" id="txt_statusPower_city" name="txt_statusPower_city" />
+			<input type="hidden" id="txt_statusPower_typhoon" name="txt_statusPower_typhoon" />
 			<input type="text" id="txt_power_location" name="txt_power_location"  placeholder="Location" />
 			<input type="text" id="txt_power_status" name="txt_power_status" placeholder="Status" >
 		</form>
@@ -781,7 +1015,6 @@ meter::-webkit-meter-even-less-good-value {
 	</div>
 <!-- End LifelineStatus Power Page-->
 
-
 <!-- Start PopUp Damaged Houses Page-->
 	<div data-role="page" id="rptDamageHouses" data-dialog="true">
 	<div data-role="header">
@@ -795,7 +1028,6 @@ meter::-webkit-meter-even-less-good-value {
 	</div>
 <!-- End PopUp Damaged Houses Page-->
 
-
 <!-- Start Damaged Houses Partially Page-->
 	<div data-role="page" id="rptDamagePartially" >
 		<div data-role="header">
@@ -803,7 +1035,8 @@ meter::-webkit-meter-even-less-good-value {
 		</div>
 		<div role="main" class="ui-content">
 			<form id="frmDamagePartially">
-				<input type="hidden" id="txt_damagedP_city" name="txt_damageP_city" />
+				<input type="hidden" id="txt_damagedP_city" name="txt_damagedP_city" />
+				<input type="hidden" id="txt_damagedP_typhoon" name="txt_damagedP_typhoon" />
 				<input type="text" id="txt_damagedP_location" name="txt_damagedP_location"  placeholder="Location" />
 				<input type="number" id="txt_damagedP_number" name="txt_damagedP_number" placeholder="Number" >
 			</form>
@@ -831,7 +1064,8 @@ meter::-webkit-meter-even-less-good-value {
 		</div>
 		<div role="main" class="ui-content">
 			<form id="frmDamageTotally">
-				<input type="hidden" id="txt_damagedT_city" name="txt_damageT_city" />
+				<input type="hidden" id="txt_damagedT_city" name="txt_damagedT_city	" />
+				<input type="hidden" id="txt_damagedT_typhoon" name="txt_damagedT_typhoon" />
 				<input type="text" id="txt_damagedT_location" name="txt_damagedT_location"  placeholder="Location" />
 				<input type="number" id="txt_damagedT_number" name="txt_damagedT_number" placeholder="Number" >
 			</form>
@@ -852,8 +1086,6 @@ meter::-webkit-meter-even-less-good-value {
 	</div>
 <!-- End Damaged Houses Totally Page-->
 
-
-
 <!-- Start PopUp Classes/Work Cancellation Page-->
 	<div data-role="page" id="rptCancellation" data-dialog="true">
 	<div data-role="header">
@@ -862,9 +1094,8 @@ meter::-webkit-meter-even-less-good-value {
 	<div role="main" class="ui-content">
 	<form id="frmCancellation">
 		<input type="hidden" id="txt_cancel_pre" name="txt_cancel_pre" value="preschool" />
-	
 		<input type="hidden" id="txt_cancel_sec" name="txt_cancel_sec" value="sec" />
-		<input type="hidden" id="txt_cancel_ter" name="txt_cancel_ter" value="ter" />
+		<input type="hidden" id="txt_cancel_ter" name="txt_cancel_ter" value="tert" />
 		<input type="hidden" id="txt_cancel_gov" name="txt_cancel_gov" value="gov" />
 		<a href="#rptCancellationPre" class="ui-btn ui-btn-d">Pre-School</a>
 		<a href="#rptCancellationElem" class="ui-btn ui-btn-d"  id="btnSubmitCancelelem">Elementary</a>
@@ -877,9 +1108,6 @@ meter::-webkit-meter-even-less-good-value {
 	</div>
 <!-- End PopUp Cancellation Page-->
 
-
-
-
 <!-- Start Cancellation Page-->
 	<div data-role="page" id="rptCancellationPre" >
 		<div data-role="header">
@@ -889,8 +1117,64 @@ meter::-webkit-meter-even-less-good-value {
 			<form id="frmCancellationPre">
 				<input type="hidden" id="txt_cancel_pre" name="txt_cancel_pre" value="pre-school" />
 				<input type="hidden" id="txt_cancelPre_city" name="txt_cancelPre_city" />
+				<input type="hidden" id="txt_cancelPre_typhoon" name="txt_cancelPre_typhoon" />
 				<input type="text" id="txt_cancelPre_location" name="txt_cancelPre_location"  placeholder="Location" />
-				<input type="text" id="txt_cancelPre_date" name="txt_cancelPre_date" data-role="date" placeholder="Date" >
+				<label>Date</label>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<select name="txt_cancelPre_month" id="txt_cancelPre_month">
+							<option value="01">January</option>
+							<option value="02">February</option>
+							<option value="03">March</option>
+							<option value="04">April</option>
+							<option value="05">May</option>
+							<option value="06">June</option>
+							<option value="07">July</option>
+							<option value="08">August</option>
+							<option value="09">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select>
+						<select name="txt_cancelPre_day" id="txt_cancelPre_day">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+						<select name="txt_cancelPre_year" id="txt_cancelPre_year">
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+						</select>
+						</fieldset>
+				
+				
 			</form>
 		</div>
 		<div data-role="footer" data-position="fixed">
@@ -916,10 +1200,65 @@ meter::-webkit-meter-even-less-good-value {
 		</div>
 		<div role="main" class="ui-content">
 			<form id="frmCancellationElem">
-				<input type="hidden" id="txt_cancel_elem" name="txt_cancel_elem" value="elementary" />
 				<input type="hidden" id="txt_cancelElem_city" name="txt_cancelElem_city" />
+				<input type="hidden" id="txt_cancel_elem" name="txt_cancel_elem" value="elementary" />
+				<input type="hidden" id="txt_cancelElem_typhoon" name="txt_cancelElem_typhoon" />
 				<input type="text" id="txt_cancelElem_location" name="txt_cancelElem_location"  placeholder="Location" />
-				<input type="text" id="txt_cancelElem_date" name="txt_cancelElem_date" data-role="date" placeholder="Date" >
+				<label>Date</label>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<select name="txt_cancelElem_month" id="txt_cancelElem_month">
+							<option value="01">January</option>
+							<option value="02">February</option>
+							<option value="03">March</option>
+							<option value="04">April</option>
+							<option value="05">May</option>
+							<option value="06">June</option>
+							<option value="07">July</option>
+							<option value="08">August</option>
+							<option value="09">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select>
+						<select name="txt_cancelElem_day" id="txt_cancelElem_day">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+						<select name="txt_cancelElem_year" id="txt_cancelElem_year">
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+						</select>
+					</fieldset>
+				
 			</form>
 		</div>
 		<div data-role="footer" data-position="fixed">
@@ -947,8 +1286,62 @@ meter::-webkit-meter-even-less-good-value {
 			<form id="frmCancellationSec">
 				<input type="hidden" id="txt_cancel_sec" name="txt_cancel_sec" value="secondary" />
 				<input type="hidden" id="txt_cancelSec_city" name="txt_cancelSec_city" />
+				<input type="hidden" id="txt_cancelSec_typhoon" name="txt_cancelSec_typhoon" />
 				<input type="text" id="txt_cancelSec_location" name="txt_cancelSec_location"  placeholder="Location" />
-				<input type="text" id="txt_cancelSec_date" name="txt_cancelSec_date" data-role="date" placeholder="Date" >
+				<label>Date</label>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<select name="txt_cancelSec_month" id="txt_cancelSec_month">
+							<option value="01">January</option>
+							<option value="02">February</option>
+							<option value="03">March</option>
+							<option value="04">April</option>
+							<option value="05">May</option>
+							<option value="06">June</option>
+							<option value="07">July</option>
+							<option value="08">August</option>
+							<option value="09">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select>
+						<select name="txt_cancelSec_day" id="txt_cancelSec_day">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+						<select name="txt_cancelSec_year" id="txt_cancelSec_year">
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+						</select>
+					</fieldset>
 			</form>
 		</div>
 		<div data-role="footer" data-position="fixed">
@@ -976,8 +1369,62 @@ meter::-webkit-meter-even-less-good-value {
 			<form id="frmCancellationTer">
 				<input type="hidden" id="txt_cancel_ter" name="txt_cancel_ter" value="tertiary" />
 				<input type="hidden" id="txt_cancelTer_city" name="txt_cancelTer_city" />
+				<input type="hidden" id="txt_cancelTer_typhoon" name="txt_cancelTer_typhoon" />
 				<input type="text" id="txt_cancelTer_location" name="txt_cancelTer_location"  placeholder="School" />
-				<input type="text" id="txt_cancelTer_date" name="txt_cancelTer_date" data-role="date" placeholder="Date" >
+				<label>Date</label>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<select name="txt_cancelTer_month" id="txt_cancelTer_month">
+							<option value="01">January</option>
+							<option value="02">February</option>
+							<option value="03">March</option>
+							<option value="04">April</option>
+							<option value="05">May</option>
+							<option value="06">June</option>
+							<option value="07">July</option>
+							<option value="08">August</option>
+							<option value="09">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select>
+						<select name="txt_cancelTer_day" id="txt_cancelTer_day">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+						<select name="txt_cancelTer_year" id="txt_cancelTer_year">
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+						</select>
+					</fieldset>
 			</form>
 		</div>
 		<div data-role="footer" data-position="fixed">
@@ -1005,8 +1452,62 @@ meter::-webkit-meter-even-less-good-value {
 			<form id="frmCancellationGov">
 				<input type="hidden" id="txt_cancel_gov" name="txt_cancel_gov" value="government" />
 				<input type="hidden" id="txt_cancelGov_city" name="txt_cancelGov_city" />
+				<input type="hidden" id="txt_cancelGov_typhoon" name="txt_cancelGov_typhoon" />
 				<input type="text" id="txt_cancelGov_location" name="txt_cancelGov_location"  placeholder="Agency" />
-				<input type="text" id="txt_cancelGov_date" name="txt_cancelGov_date" data-role="date" placeholder="Date" >
+				<label>Date</label>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<select name="txt_cancelGov_month" id="txt_cancelGov_month">
+							<option value="01">January</option>
+							<option value="02">February</option>
+							<option value="03">March</option>
+							<option value="04">April</option>
+							<option value="05">May</option>
+							<option value="06">June</option>
+							<option value="07">July</option>
+							<option value="08">August</option>
+							<option value="09">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select>
+						<select name="txt_cancelGov_day" id="txt_cancelGov_day">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+						<select name="txt_cancelGov_year" id="txt_cancelGov_year">
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+						</select>
+					</fieldset>
 			</form>
 		</div>
 		<div data-role="footer" data-position="fixed">
@@ -1025,12 +1526,6 @@ meter::-webkit-meter-even-less-good-value {
 	</div>
 <!-- End Cancellation Page-->
 
-
-
-
-
-
-
 <!-- Start Declaration of State of Calamity Page-->
 	<div data-role="page" id="rptCalamity" >
 	<div data-role="header">
@@ -1039,6 +1534,7 @@ meter::-webkit-meter-even-less-good-value {
 	<div role="main" class="ui-content">
 		<form id="frmCalamity">
 			<input type="hidden" id="txt_calamity_city" name="txt_calamity_city" />
+			<input type="hidden" id="txt_calamity_typhoon" name="txt_calamity_typhoon" />
 			<input type="text" id="txt_calamity_location" name="txt_calamity_location"  placeholder="Location" />
 			<input type="text" id="txt_calamity_resonum" name="txt_calamity_resonum" placeholder="Resolution Number" >
 		</form>
