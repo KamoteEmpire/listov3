@@ -13,7 +13,7 @@ $result = mysqli_query($conn, $sql);
 
 echo "<table class='table table-striped'>";
 echo "<tr>";
-	echo "<th>Alpha</th>";
+	echo "<th style='background-color: yellow;'>Alpha</th>";
 echo "</tr>";
 if(mysqli_num_rows($result) > 0){
 	while($row = mysqli_fetch_assoc($result)){

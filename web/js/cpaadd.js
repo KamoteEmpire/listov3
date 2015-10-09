@@ -3,28 +3,40 @@ $(document).ready(function(){
 		var selectedRegion = $('#txtSelectRegion').val();
 		$.ajax({
           type:'GET',
-          url: 'view_abc_status_json.php',
-          dataType:'JSON',
+          url: 'view_abc_status_a.php',
+          dataType:'html',
           data:{
 			  selectedRegions : selectedRegion 
           },
           success: function(data){
-					
-					$("#displayCPAAlert").html('<table class="table table-striped "/>');
-						$("#displayCPAAlert table").append('<tr>'+'<th>'+'Alpha'+'</th>'+'<th>'+'Bravo'+'</th>'+'<th>'+'Charlie'+'</th>'+'</tr>');
-					
-					$.each(data, function(key, value) {
-						if(value['alertlevel']=='alpha'){
-							$("#displayCPAAlert table").append('<tr>'+'<td>'+value['lgu']+'</td>');
-						}
-						else if(value['alertlevel']=='bravo'){
-							$("#displayCPAAlert table").append('<td>'+value['lgu']+'</td>');
-						}
-						else if(value['alertlevel']=='charlie'){
-							$("#displayCPAAlert table").append('<td>'+value['lgu']+'</td>'+'</tr>');
-						}
-					});
-					
+					$('#displayCPAAlertAlpha').fadeIn();
+					$('#displayCPAAlertAlpha').html(data);
+				}
+			
+        });
+		
+		$.ajax({
+          type:'GET',
+          url: 'view_abc_status_b.php',
+          dataType:'html',
+          data:{
+			  selectedRegions : selectedRegion 
+          },
+          success: function(data){
+					$('#displayCPAAlertBravo').html(data);
+				}
+			
+        });
+		
+		$.ajax({
+          type:'GET',
+          url: 'view_abc_status_c.php',
+          dataType:'html',
+          data:{
+			  selectedRegions : selectedRegion 
+          },
+          success: function(data){
+					$('#displayCPAAlertCharlie').html(data);
 				}
 			
         });

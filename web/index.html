@@ -735,10 +735,15 @@ $(document).ready( function() {
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                    
-				   <div id="displayCPAAlert" class="col-lg-8 col-lg-offset-2 text-center">
-						
+				   <div id="displayCPAAlertAlpha" class="col-lg-4  text-center">
+						Loading Alpha...
 				   </div>
-				  
+				   <div id="displayCPAAlertBravo" class="col-lg-4  text-center">
+						Loading Bravo...
+				   </div>
+				   <div id="displayCPAAlertCharlie" class="col-lg-4 text-center">
+						Loading Charlie...
+				   </div>
 					
                 </div>
             </div>
@@ -759,36 +764,7 @@ $(document).ready( function() {
     </section>
 	
 	<!-- Map Section -->
-    <section class="success" id="heatmap" style="background-color: #ff0000;" >
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Disease Heat Map</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-			
-				<div class="row">
-				  <div id="map-outer" class="col-lg-8 col-lg-offset-2">
-					<div class="form-group">
-						<select class="form-control input-lg" id="txtDisease" name="txtDisease">
-							<option>Please Select Disease</option>
-							<option value="Pneumonia">Pneumonia</option>
-							<option value="Diarrhea">Diarrhea</option>
-							<option value="Leptospirosis">Leptospirosis</option>
-							<option value="Malnutrition">Malnutrition</option>
-							<option value="Influenza">Influenza</option>
-							<option value="Malaria">Malaria</option>
-							<option value="Dengue">Dengue</option>
-							<option value="Tuberculosis">Tuberculosis</option>
-							<option value="Hypertension">Heart Disease/Hypertension</option>
-						</select>
-					</div>
-					<div id="map-container"></div>
-				  </div><!-- /map-outer -->
-			  </div> <!-- /row -->
-        </div>
-    </section>
+    
 
     <!-- Footer -->
     <footer class="text-center">
