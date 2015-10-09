@@ -187,7 +187,7 @@ $(document).ready(function(){
 				});	
 		});
 	
-		$('#btnSubmitDamagePartially').click(function(){
+	$('#btnSubmitDamagePartially').click(function(){
 			var preMonitorCityPower = localStorage.getItem('datausername');
 			$('#txt_damagedP_city').val(preMonitorCityPower);
 			
@@ -200,7 +200,7 @@ $(document).ready(function(){
 			var frmDamagePartially= $("#frmDamagePartially");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'http://iligtas.ph/listo/mobile/add_damage_houses.php?category='+category,						
+					url: 'http://iligtas.ph/listo/mobile/add_damage_houses.php?category='+category,									
 					type: 'POST',
 					data: frmDamagePartially.serialize(),
 					success: function (data) {
@@ -261,7 +261,7 @@ $(document).ready(function(){
 			var frmCancellationPre= $("#frmCancellationPre");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',						
+					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',								
 					type: 'POST',
 					data: frmCancellationPre.serialize(),
 					success: function (data) {
@@ -279,6 +279,7 @@ $(document).ready(function(){
 					}
 				});	
 		});
+		
 		
 		$('#btnSubmitCancellationElem').click(function(){
 			var preMonitorCityPower = localStorage.getItem('datausername');
