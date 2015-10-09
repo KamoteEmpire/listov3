@@ -59,15 +59,19 @@ $(document).ready(function(){
 		
 	});
 	
-	$('#btnSubmitAffectedPopulation').click(function(){
+		$('#btnSubmitAffectedPopulation').click(function(){
 			
 			var preMonitorCity = localStorage.getItem('datausername');
-					$('#txt_affected_city').val(preMonitorCity);
+			$('#txt_affected_city').val(preMonitorCity);		
+			
+			var typhoon = localStorage.getItem('datatyphoon');
+			$('#txt_affected_typhoon').val(typhoon);
+			
 			var frmAffectedPopulation= $("#frmAffectedPopulation");
 			$("#divCity").append('<p>'+preMonitorCity+'</p>');
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'http://iligtas.ph/listo/mobile/add_affectedpopulation.php',						
+				url: 'http://iligtas.ph/listo/mobile/add_affectedpopulation.php',					
 					type: 'POST',
 					data: frmAffectedPopulation.serialize(),
 					success: function (data) {
@@ -84,7 +88,7 @@ $(document).ready(function(){
 						alert(data);
 					}
 				});	
-	});
+		});
 	
 	
 });
