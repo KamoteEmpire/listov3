@@ -3,15 +3,39 @@ $(document).ready(function(){
 		var selectedRegion = $('#txtSelectRegion').val();
 		$.ajax({
           type:'GET',
-          url: 'http://iligtas.ph/listo/view_abc_status.php',
+          url: 'view_abc_status_a.php',
           dataType:'html',
           data:{
 			  selectedRegions : selectedRegion 
           },
           success: function(data){
-			$('#displayCPAAlert').html(data);
+			$('#displayCPAAlertAlpha').html(data);
           }
-        }); 
+        });
+		
+		$.ajax({
+          type:'GET',
+          url: 'view_abc_status_b.php',
+          dataType:'html',
+          data:{
+			  selectedRegions : selectedRegion 
+          },
+          success: function(data){
+			$('#displayCPAAlertBravo').html(data);
+          }
+        });
+		
+		$.ajax({
+          type:'GET',
+          url: 'view_abc_status_c.php',
+          dataType:'html',
+          data:{
+			  selectedRegions : selectedRegion 
+          },
+          success: function(data){
+			$('#displayCPAAlertCharlie').html(data);
+          }
+        });
 	
 		
 		
