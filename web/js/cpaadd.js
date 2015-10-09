@@ -9,9 +9,22 @@ $(document).ready(function(){
 			  selectedRegions : selectedRegion 
           },
           success: function(data){
+					
+					$("#displayCPAAlert").html('<table class="table table-striped "/>');
+						$("#displayCPAAlert table").append('<tr>'+'<th>'+'Alpha'+'</th>'+'<th>'+'Bravo'+'</th>'+'<th>'+'Charlie'+'</th>'+'</tr>');
+					
 					$.each(data, function(key, value) {
-						$("#displayCPAAlert").append('<p>'+value['lgu']+'</p>'+'<p>'+value['alertlevel']+'</p>'+'<hr/>');					
-					});		
+						if(value['alertlevel']=='alpha'){
+							$("#displayCPAAlert table").append('<tr>'+'<td>'+value['lgu']+'</td>');
+						}
+						else if(value['alertlevel']=='bravo'){
+							$("#displayCPAAlert table").append('<td>'+value['lgu']+'</td>');
+						}
+						else if(value['alertlevel']=='charlie'){
+							$("#displayCPAAlert table").append('<td>'+value['lgu']+'</td>'+'</tr>');
+						}
+					});
+					
 				}
 			
         });
