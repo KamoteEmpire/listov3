@@ -9,11 +9,15 @@ $(document).ready(function(){
 	
 	$('#btnSubmitInitialDisasterIncident').click(function(){
 			var preMonitorCity = localStorage.getItem('datausername');
-			$('#txt_initd_city').val(preMonitorCity);
+			$('#txt_initd_city').val(preMonitorCity);	
+
+			var typhoon = localStorage.getItem('datatyphoon');
+			$('#txt_initd_typhoon').val(typhoon);
+			
 			var frmInitialDisasterIncident= $("#frmInitialDisasterIncident");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'http://iligtas.ph/listo/mobile/add_initialdisaster.php',						
+						url: 'http://iligtas.ph/listo/mobile/add_initialdisaster.php',			
 					type: 'POST',
 					data: frmInitialDisasterIncident.serialize(),
 					success: function (data) {
@@ -27,7 +31,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert(data);
+						alert("Seve");
 					}
 				});	
 	});
