@@ -31,7 +31,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Seve");
+						alert("Server problem please try again later.Thank you ");
 					}
 				});	
 	});
@@ -85,7 +85,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert(data);
+						alert("Server problem please try again later.Thank you ");
 					}
 				});	
 		});
