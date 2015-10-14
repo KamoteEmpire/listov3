@@ -27,7 +27,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
+						alert(data);
 					}
 				});	
 		});
@@ -58,7 +58,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
+						alert(data);
 					}
 				});	
 		});
@@ -89,7 +89,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
+						alert(data);
 					}
 				});	
 		});
@@ -119,7 +119,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
+						alert(data);
 					}
 				});	
 		});
@@ -151,7 +151,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
+						alert(data);
 					}
 				});	
 		});
@@ -182,7 +182,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
+						alert(data);
 					}
 				});	
 		});
@@ -214,7 +214,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
+						alert(data);
 					}
 				});	
 		});
@@ -246,161 +246,54 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
-					}
-				});	
-		});
-	
-		$('#btnSubmitCancellationPre').click(function(){
-			var preMonitorCityPower = localStorage.getItem('datausername');
-			$('#txt_cancelPre_city').val(preMonitorCityPower);
-			
-			var typhoon = localStorage.getItem('datatyphoon');
-			$('#txt_cancelPre_typhoon').val(typhoon);
-			
-			var frmCancellationPre= $("#frmCancellationPre");
-			$.mobile.loading("show");
-				$.ajax({
-					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',								
-					type: 'POST',
-					data: frmCancellationPre.serialize(),
-					success: function (data) {
-						$.mobile.loading("hide");
-						$("#popuptextReportDataSubmitCancellationPre").html("<strong>"+data+"<strong>");	
-						$( "#popupAfterReportDataSubmitCancellationPre" ).popup();
-						$( "#popupAfterReportDataSubmitCancellationPre" ).popup( "open", { 
-						positionTo: "window",
-						transition: "slidedown" });
-						$.mobile.loading("hide");
-					},
-					error: function(data){
-						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
-					}
-				});	
-		});
-		
-		
-		$('#btnSubmitCancellationElem').click(function(){
-			var preMonitorCityPower = localStorage.getItem('datausername');
-			$('#txt_cancelElem_city').val(preMonitorCityPower);
-			
-			var typhoon = localStorage.getItem('datatyphoon');
-			$('#txt_cancelElem_typhoon').val(typhoon);
-			
-			var frmCancellationElem= $("#frmCancellationElem");
-			$.mobile.loading("show");
-				$.ajax({
-					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',	
-					type: 'POST',
-					data: frmCancellationElem.serialize(),
-					success: function (data) {
-						$.mobile.loading("hide");
-						$("#popuptextReportDataSubmitCancellationElem").html("<strong>"+data+"<strong>");	
-						$( "#popupAfterReportDataSubmitCancellationElem" ).popup();
-						$( "#popupAfterReportDataSubmitCancellationElem" ).popup( "open", { 
-						positionTo: "window",
-						transition: "slidedown" });
-						$.mobile.loading("hide");
-					},
-					error: function(data){
-						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
-					}
-				});	
-		});
-	
-		$('#btnSubmitCancellationSec').click(function(){
-			var preMonitorCity = localStorage.getItem('datausername');
-			$('#txt_cancelSec_city').val(preMonitorCity);
-		
-			var typhoon = localStorage.getItem('datatyphoon');
-			$('#txt_cancelSec_typhoon').val(typhoon);
-			
-			
-			var frmCancellationSec= $("#frmCancellationSec");
-			$.mobile.loading("show");
-				$.ajax({
-					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',							
-					type: 'POST',
-					data: frmCancellationSec.serialize(),
-					success: function (data) {
-						$.mobile.loading("hide");
-						$("#popuptextReportDataSubmitCancellationSec").html("<strong>"+data+"<strong>");	
-						$( "#popupAfterReportDataSubmitCancellationSec" ).popup();
-						$( "#popupAfterReportDataSubmitCancellationSec" ).popup( "open", { 
-						positionTo: "window",
-						transition: "slidedown" });
-						$.mobile.loading("hide");
-					},
-					error: function(data){
-						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
+						alert(data);
 					}
 				});	
 		});
 
-		$('#btnSubmitCancellationTer').click(function(){
-			var preMonitorCity = localStorage.getItem('datausername');
-			$('#txt_cancelTer_city').val(preMonitorCity);
-			
-			var typhoon = localStorage.getItem('datatyphoon');
-			$('#txt_cancelTer_typhoon').val(typhoon);
-			
-			var frmCancellationTer= $("#frmCancellationTer");
-			
-			console.log(typhoon + preMonitorCity);
-			$.mobile.loading("show");
-				$.ajax({
-					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',							
-					type: 'POST',
-					data: frmCancellationTer.serialize(),
-					success: function (data) {
-						$.mobile.loading("hide");
-						$("#popuptextReportDataSubmitCancellationTer").html("<strong>"+data+"<strong>");	
-						$( "#popupAfterReportDataSubmitCancellationTer" ).popup();
-						$( "#popupAfterReportDataSubmitCancellationTer" ).popup( "open", { 
-						positionTo: "window",
-						transition: "slidedown" });
-						$.mobile.loading("hide");
-					},
-					error: function(data){
-						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
-					}
-				});	
-		});
-	
-		$('#btnSubmitCancellationGov').click(function(){
-			var preMonitorCity = localStorage.getItem('datausername');
-			$('#txt_cancelGov_city').val(preMonitorCity);
-			
-			var typhoon = localStorage.getItem('datatyphoon');
-			$('#txt_cancelGov_typhoon').val(typhoon);
+
 		
-			var frmCancellationGov= $("#frmCancellationGov");
+	$('#btnCancellation').click(function(){
+			var preMonitorCity = localStorage.getItem('datausername');
+			$('#txt_cancel_city').val(preMonitorCity);
+			
+			var typhoon = localStorage.getItem('datatyphoon');
+			$('#txt_cancel_typhoon').val(typhoon);
+			
+			
+			var category = $("#txt_cancel_category").val();
+			console.log(category);
+			var frmCancellation= $("#frmCancellation");
 			$.mobile.loading("show");
 				$.ajax({
-					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php',							
+					url: 'http://iligtas.ph/listo/mobile/add_cancellation.php?category='+category,							
 					type: 'POST',
-					data: frmCancellationGov.serialize(),
+					data: frmCancellation.serialize(),
 					success: function (data) {
 						$.mobile.loading("hide");
-						$("#popuptextReportDataSubmitCancellationGov").html("<strong>"+data+"<strong>");	
-						$( "#popupAfterReportDataSubmitCancellationGov" ).popup();
-						$( "#popupAfterReportDataSubmitCancellationGov" ).popup( "open", { 
+						$("#popuptextReportDataSubmitCancellation").html("<strong>"+data+"<strong>");	
+						$( "#popupAfterReportDataSubmitCancellation" ).popup();
+						$( "#popupAfterReportDataSubmitCancellation" ).popup( "open", { 
 						positionTo: "window",
 						transition: "slidedown" });
 						$.mobile.loading("hide");
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
+						alert(data);
 					}
 				});	
 		});
 				
-		$('#btnSubmitStateCalamity').click(function(){
+	
+
+		
+		
+		
+		
+		
+		
+	$('#btnSubmitStateCalamity').click(function(){
 			var preMonitorCity = localStorage.getItem('datausername');
 			$('#txt_calamity_city').val(preMonitorCity);
 			
@@ -424,7 +317,7 @@ $(document).ready(function(){
 					},
 					error: function(data){
 						$.mobile.loading("hide");
-						alert("Server problem please try again later.Thank you ");
+						alert(data);
 					}
 				});	
 		});
