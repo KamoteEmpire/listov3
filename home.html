@@ -38,6 +38,16 @@ meter::-webkit-meter-even-less-good-value {
 	<script id="mobile-datepicker" src="js/jquery.mobile.datepicker.js"></script>
 	<script src="js/report.js"></script>
 	<script src="js/report2.js"></script>
+	<script type="text/javascript" src="phonegap.js"></script>
+	<script type="text/javascript" src="PushNotification.js"></script>
+	<script type="text/javascript" src="js/PushwooshAndroid.js"></script>
+	<script type="text/javascript" src="js/PushwooshiOS.js"></script>
+	<script type="text/javascript" src="js/PushwooshWP.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	
+        <script type="text/javascript">		
+            app.initialize();		
+        </script>
 	<script>
 	$(function()
 		  {
@@ -376,6 +386,7 @@ meter::-webkit-meter-even-less-good-value {
 <!-- Start Reporting Page-->
 	<div data-role="page" id="reportingPage" data-transition="fade">
 	<div data-role="header">
+		<a href="#mainPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a>
 		<h1>REPORTING</h1>
 	</div>
 	<div role="main" class="ui-content">
@@ -626,7 +637,7 @@ meter::-webkit-meter-even-less-good-value {
 
 			<input type="text" id="txt_cd_address" name="txt_cd_address" placeholder="Address">
 			<input type="text" id="txt_cause_of_death" name="txt_cause_of_death" placeholder="Cause of Death" >
-			<label>Death of Date:</label>
+			<label>Date of Death:</label>
 			<fieldset data-role="controlgroup" data-type="horizontal">
 			<select name="txt_death_month" id="txt_death_month" data-mini="true">
 					<option value="01">January</option>
@@ -741,7 +752,7 @@ meter::-webkit-meter-even-less-good-value {
 				</fieldset>
 			
 			<select id="txt_cd_warnings" name="txt_cd_warnings" >
-				<option readonly>Where there warnings?</option>
+				<option readonly>Were there warnings?</option>
 				<option value="yes">yes</option>
 				<option value="no">no</option>
 			</select>
@@ -851,7 +862,7 @@ meter::-webkit-meter-even-less-good-value {
 			
 			
 			<select id="txt_ci_warnings" name="txt_ci_warnings" >
-				<option readonly>Where there warnings?</option>
+				<option readonly>Were there warnings?</option>
 				<option value="yes">yes</option>
 				<option value="no">no</option>
 			</select>
@@ -882,7 +893,7 @@ meter::-webkit-meter-even-less-good-value {
 	<div data-role="page" id="rptCasualtiesMissing" >
 	<div data-role="header">
 		<a href="#reportingPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a>
-		<h1>Casualtie</h1>
+		<h1>Casualties</h1>
 	</div>
 	<div role="main" class="ui-content">
 		
@@ -952,7 +963,7 @@ meter::-webkit-meter-even-less-good-value {
 			
 			<input type="text" id="txt_cm_status" name="txt_cm_status" placeholder="Status">
 			<select id="txt_cm_warnings" name="txt_cm_warnings" >
-				<option readonly>Where there warnings?</option>
+			<option readonly>Were there warnings?</option>
 				<option value="yes">yes</option>
 				<option value="no">no</option>
 			</select>
@@ -1267,7 +1278,7 @@ meter::-webkit-meter-even-less-good-value {
 			<input type="hidden" id="txt_calamity_city" name="txt_calamity_city" />
 			<input type="hidden" id="txt_calamity_typhoon" name="txt_calamity_typhoon" />
 			<input type="text" id="txt_calamity_location" name="txt_calamity_location"  placeholder="Location" />
-			<input type="text" id="txt_calamity_resonum" name="txt_calamity_resonum" placeholder="Resolution Number" >
+			<input type="number" id="txt_calamity_resonum" name="txt_calamity_resonum" placeholder="Resolution Number" >
 		</form>
 		
 	</div>
