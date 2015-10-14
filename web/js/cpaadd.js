@@ -52,6 +52,7 @@ $(document).ready(function(){
 	
 	
 	$('#btnSubmitReport').click(function(){
+		var typhoonStatus = $('#txtTyphoonStatus').val();
 		var alertLevel = $('#txtAlertLevel').val();
 		var region = $('#txtRegion').val();
 		var province = $('#txtProvince').val();
@@ -60,6 +61,7 @@ $(document).ready(function(){
           txtLGUS.push(item.value);
         });
 		
+		alert(typhoonStatus);
 		alert(alertLevel);
 		alert(region);
 		alert(province);
@@ -67,9 +69,10 @@ $(document).ready(function(){
 		
 		$.ajax({
           type:'GET',
-          url: 'http://iligtas.ph/listo/add_cpaalert.php',
+          url: 'add_cpaalert.php',
           dataType:'html',
           data:{
+			txtTyphoonStatus: typhoonStatus,
             txtAlertLevel : alertLevel,
 			txtRegion : region,
 			txtProvince : province,
