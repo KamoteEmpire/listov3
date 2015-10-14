@@ -38,17 +38,6 @@ meter::-webkit-meter-even-less-good-value {
 	<script id="mobile-datepicker" src="js/jquery.mobile.datepicker.js"></script>
 	<script src="js/report.js"></script>
 	<script src="js/report2.js"></script>
-	<script type="text/javascript" src="phonegap.js"></script>
-	<script type="text/javascript" src="PushNotification.js"></script>
-
-        <script type="text/javascript" src="js/PushwooshAndroid.js"></script>
-        <script type="text/javascript" src="js/PushwooshiOS.js"></script>
-        <script type="text/javascript" src="js/PushwooshWP.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        
-        <script type="text/javascript">
-            app.initialize();
-        </script>
 	<script>
 	$(function()
 		  {
@@ -83,7 +72,7 @@ meter::-webkit-meter-even-less-good-value {
 		  	$( "#txt_cancelGov_date" ).date({
 					dateFormat: "yy-mm-dd"
 			});
-	
+		  
 		  
 			$.mobile.loading("show");
 		  $.getJSON("http://iligtas.ph/listo/mobile/cpaalertjson.php", function(myData)
@@ -387,7 +376,6 @@ meter::-webkit-meter-even-less-good-value {
 <!-- Start Reporting Page-->
 	<div data-role="page" id="reportingPage" data-transition="fade">
 	<div data-role="header">
-		<a href="#mainPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a>
 		<h1>REPORTING</h1>
 	</div>
 	<div role="main" class="ui-content">
@@ -638,7 +626,7 @@ meter::-webkit-meter-even-less-good-value {
 
 			<input type="text" id="txt_cd_address" name="txt_cd_address" placeholder="Address">
 			<input type="text" id="txt_cause_of_death" name="txt_cause_of_death" placeholder="Cause of Death" >
-			<label>Date of Death:</label>
+			<label>Death of Date:</label>
 			<fieldset data-role="controlgroup" data-type="horizontal">
 			<select name="txt_death_month" id="txt_death_month" data-mini="true">
 					<option value="01">January</option>
@@ -753,7 +741,7 @@ meter::-webkit-meter-even-less-good-value {
 				</fieldset>
 			
 			<select id="txt_cd_warnings" name="txt_cd_warnings" >
-				<option readonly>Were there warnings?</option>
+				<option readonly>Where there warnings?</option>
 				<option value="yes">yes</option>
 				<option value="no">no</option>
 			</select>
@@ -863,7 +851,7 @@ meter::-webkit-meter-even-less-good-value {
 			
 			
 			<select id="txt_ci_warnings" name="txt_ci_warnings" >
-				<option readonly>Were there warnings?</option>
+				<option readonly>Where there warnings?</option>
 				<option value="yes">yes</option>
 				<option value="no">no</option>
 			</select>
@@ -894,7 +882,7 @@ meter::-webkit-meter-even-less-good-value {
 	<div data-role="page" id="rptCasualtiesMissing" >
 	<div data-role="header">
 		<a href="#reportingPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a>
-		<h1>Casualties</h1>
+		<h1>Casualtie</h1>
 	</div>
 	<div role="main" class="ui-content">
 		
@@ -964,7 +952,7 @@ meter::-webkit-meter-even-less-good-value {
 			
 			<input type="text" id="txt_cm_status" name="txt_cm_status" placeholder="Status">
 			<select id="txt_cm_warnings" name="txt_cm_warnings" >
-				<option readonly>Were there warnings?</option>
+				<option readonly>Where there warnings?</option>
 				<option value="yes">yes</option>
 				<option value="no">no</option>
 			</select>
@@ -1168,455 +1156,104 @@ meter::-webkit-meter-even-less-good-value {
 	</div>
 <!-- End Damaged Houses Totally Page-->
 
-<!-- Start PopUp Classes/Work Cancellation Page-->
-	<div data-role="page" id="rptCancellation" data-dialog="true">
+
+<!-- Start rptCancellation Page-->
+	<div data-role="page" id="rptCancellation" >
 	<div data-role="header">
+			<a href="#reportingPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a>
 		<h1>Cancellation</h1>
 	</div>
 	<div role="main" class="ui-content">
-	<form id="frmCancellation">
-		<input type="hidden" id="txt_cancel_pre" name="txt_cancel_pre" value="preschool" />
-		<input type="hidden" id="txt_cancel_sec" name="txt_cancel_sec" value="sec" />
-		<input type="hidden" id="txt_cancel_ter" name="txt_cancel_ter" value="tert" />
-		<input type="hidden" id="txt_cancel_gov" name="txt_cancel_gov" value="gov" />
-		<a href="#rptCancellationPre" class="ui-btn ui-btn-d">Pre-School</a>
-		<a href="#rptCancellationElem" class="ui-btn ui-btn-d"  id="btnSubmitCancelelem">Elementary</a>
-		<a href="#rptCancellationSec" class="ui-btn ui-btn-d"  id="btnSubmitCancelsec">Secondary</a>
-		<a href="#rptCancellationTer" class="ui-btn ui-btn-d"  id="btnSubmitCancel3">Tertiary</a>
-		<a href="#rptCancellationGov" class="ui-btn ui-btn-d"  id="btnSubmitCancel4">Government Offices</a>
+			<form id="frmCancellation">
+			
+				<input type="hidden" id="txt_cancel_city" name="txt_cancel_city" />
+				<input type="hidden" id="txt_cancel_typhoon" name="txt_cancel_typhoon" />
+				<select placeholder=""  id="txt_cancel_category" name="txt_cancel_category" data-mini="true" >
+					<option value="pre-school">Pre-School</option>
+					<option value="elementary">Elementary</option>
+					<option value="secondary">Secondary</option>
+					<option value="tertiary">Tertiary</option>
+					<option value="government">Government</option>
+				</select>
+				<input type="text" id="txt_cancel_location" name="txt_cancel_location"  placeholder="Location / School /Agency" />
+				<label>Date</label>
+				<fieldset data-role="controlgroup" data-type="horizontal">
+					<select name="txt_cancel_month" id="txt_cancel_month">
+							<option value="01">January</option>
+							<option value="02">February</option>
+							<option value="03">March</option>
+							<option value="04">April</option>
+							<option value="05">May</option>
+							<option value="06">June</option>
+							<option value="07">July</option>
+							<option value="08">August</option>
+							<option value="09">September</option>
+							<option value="10">October</option>
+							<option value="11">November</option>
+							<option value="12">December</option>
+						</select>
+						<select name="txt_cancel_day" id="txt_cancel_day">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+							<option value="7">7</option>
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="13">13</option>
+							<option value="14">14</option>
+							<option value="15">15</option>
+							<option value="16">16</option>
+							<option value="17">17</option>
+							<option value="18">18</option>
+							<option value="19">19</option>
+							<option value="20">20</option>
+							<option value="21">21</option>
+							<option value="22">22</option>
+							<option value="23">23</option>
+							<option value="24">24</option>
+							<option value="25">25</option>
+							<option value="26">26</option>
+							<option value="27">27</option>
+							<option value="28">28</option>
+							<option value="29">29</option>
+							<option value="30">30</option>
+							<option value="31">31</option>
+						</select>
+						<select name="txt_cancel_year" id="txt_cancel_year">
+							<option value="2015">2015</option>
+							<option value="2014">2014</option>
+							
+						</select>
+					</fieldset>				
 	</form>
+		
 	</div>
-	<div data-role="footer" data-position="fixed"> </div>
+	
+	<div data-role="footer" data-position="fixed">
+		<div data-role="navbar" >
+			<ul>
+				<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnCancellation">SUBMIT</button></li>
+			</ul>
+		</div>
 	</div>
-<!-- End PopUp Cancellation Page-->
+	
+	<div data-role="popup" id="popupAfterReportDataSubmitCancellation" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
+				<div data-role="header">
+					<h1>SUBMITTED</h1>
+				</div>
+				<p id="popuptextReportDataSubmitCancellation" style="text-align: center;"></p>
+	</div>
+	
+	
+	</div>
+<!-- End Declaration of State of Calamity Page-->
 
-<!-- Start Cancellation Page-->
-	<div data-role="page" id="rptCancellationPre" >
-		<div data-role="header">
-			<a href="#reportingPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a>
-			<h1>Cancellation</h1>
-		</div>
-		<div role="main" class="ui-content">
-			<form id="frmCancellationPre">
-				<input type="hidden" id="txt_cancel_pre" name="txt_cancel_pre" value="pre-school" />
-				<input type="hidden" id="txt_cancelPre_city" name="txt_cancelPre_city" />
-				<input type="hidden" id="txt_cancelPre_typhoon" name="txt_cancelPre_typhoon" />
-				<input type="text" id="txt_cancelPre_location" name="txt_cancelPre_location"  placeholder="Location" />
-				<label>Date</label>
-				<fieldset data-role="controlgroup" data-type="horizontal">
-					<select name="txt_cancelPre_month" id="txt_cancelPre_month">
-							<option value="01">January</option>
-							<option value="02">February</option>
-							<option value="03">March</option>
-							<option value="04">April</option>
-							<option value="05">May</option>
-							<option value="06">June</option>
-							<option value="07">July</option>
-							<option value="08">August</option>
-							<option value="09">September</option>
-							<option value="10">October</option>
-							<option value="11">November</option>
-							<option value="12">December</option>
-						</select>
-						<select name="txt_cancelPre_day" id="txt_cancelPre_day">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-							<option value="16">16</option>
-							<option value="17">17</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30">30</option>
-							<option value="31">31</option>
-						</select>
-						<select name="txt_cancelPre_year" id="txt_cancelPre_year">
-							
-							<option value="2015">2015</option>
-							<option value="2014">2014</option>
-						</select>
-						</fieldset>
-				
-				
-			</form>
-		</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" >
-				<ul>
-					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCancellationPre">SUBMIT</button></li>
-				</ul>
-			</div>
-		</div>
-		<div data-role="popup" id="popupAfterReportDataSubmitCancellationPre" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
-					<div data-role="header">
-						<h1>SUBMITTED</h1>
-					</div>
-					<p id="popuptextReportDataSubmitCancellationPre" style="text-align: center;"></p>
-		</div>
-	</div>
-<!-- End Cancellation Page-->
-
-<!-- Start Cancellation  Page-->
-	<div data-role="page" id="rptCancellationElem" >
-		<div data-role="header">
-			<a href="#reportingPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a>		
-			<h1>Cancellation</h1>
-		</div>
-		<div role="main" class="ui-content">
-			<form id="frmCancellationElem">
-				<input type="hidden" id="txt_cancelElem_city" name="txt_cancelElem_city" />
-				<input type="hidden" id="txt_cancel_elem" name="txt_cancel_elem" value="elementary" />
-				<input type="hidden" id="txt_cancelElem_typhoon" name="txt_cancelElem_typhoon" />
-				<input type="text" id="txt_cancelElem_location" name="txt_cancelElem_location"  placeholder="Location" />
-				<label>Date</label>
-				<fieldset data-role="controlgroup" data-type="horizontal">
-					<select name="txt_cancelElem_month" id="txt_cancelElem_month">
-							<option value="01">January</option>
-							<option value="02">February</option>
-							<option value="03">March</option>
-							<option value="04">April</option>
-							<option value="05">May</option>
-							<option value="06">June</option>
-							<option value="07">July</option>
-							<option value="08">August</option>
-							<option value="09">September</option>
-							<option value="10">October</option>
-							<option value="11">November</option>
-							<option value="12">December</option>
-						</select>
-						<select name="txt_cancelElem_day" id="txt_cancelElem_day">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-							<option value="16">16</option>
-							<option value="17">17</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30">30</option>
-							<option value="31">31</option>
-						</select>
-						<select name="txt_cancelElem_year" id="txt_cancelElem_year">
-							<option value="2015">2015</option>
-							<option value="2014">2014</option>
-							
-						</select>
-					</fieldset>
-				
-			</form>
-		</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" >
-				<ul>
-					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCancellationElem">SUBMIT</button></li>
-				</ul>
-			</div>
-		</div>
-		<div data-role="popup" id="popupAfterReportDataSubmitCancellationElem" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
-					<div data-role="header">
-						<h1>SUBMITTED</h1>
-					</div>
-					<p id="popuptextReportDataSubmitCancellationElem" style="text-align: center;"></p>
-		</div>
-	</div>
-<!-- End Cancellation Page-->
-
-<!-- Start Cancellation  Page-->
-	<div data-role="page" id="rptCancellationSec" >
-		<div data-role="header">
-					<a href="#reportingPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a><a href="#reportingPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a>
-			<h1>Cancellation</h1>
-		</div>
-		<div role="main" class="ui-content">
-			<form id="frmCancellationSec">
-				<input type="hidden" id="txt_cancel_sec" name="txt_cancel_sec" value="secondary" />
-				<input type="hidden" id="txt_cancelSec_city" name="txt_cancelSec_city" />
-				<input type="hidden" id="txt_cancelSec_typhoon" name="txt_cancelSec_typhoon" />
-				<input type="text" id="txt_cancelSec_location" name="txt_cancelSec_location"  placeholder="Location" />
-				<label>Date</label>
-				<fieldset data-role="controlgroup" data-type="horizontal">
-					<select name="txt_cancelSec_month" id="txt_cancelSec_month">
-							<option value="01">January</option>
-							<option value="02">February</option>
-							<option value="03">March</option>
-							<option value="04">April</option>
-							<option value="05">May</option>
-							<option value="06">June</option>
-							<option value="07">July</option>
-							<option value="08">August</option>
-							<option value="09">September</option>
-							<option value="10">October</option>
-							<option value="11">November</option>
-							<option value="12">December</option>
-						</select>
-						<select name="txt_cancelSec_day" id="txt_cancelSec_day">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-							<option value="16">16</option>
-							<option value="17">17</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30">30</option>
-							<option value="31">31</option>
-						</select>
-						<select name="txt_cancelSec_year" id="txt_cancelSec_year">
-							<option value="2015">2015</option>
-							<option value="2014">2014</option>
-							
-						</select>
-					</fieldset>
-			</form>
-		</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" >
-				<ul>
-					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCancellationSec">SUBMIT</button></li>
-				</ul>
-			</div>
-		</div>
-		<div data-role="popup" id="popupAfterReportDataSubmitCancellationSec" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
-					<div data-role="header">
-						<h1>SUBMITTED</h1>
-					</div>
-					<p id="popuptextReportDataSubmitCancellationSec" style="text-align: center;"></p>
-		</div>
-	</div>
-<!-- End Cancellation Page-->
-
-<!-- Start Cancellation  Page-->
-	<div data-role="page" id="rptCancellationTer" >
-		<div data-role="header">
-				<a href="#reportingPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a>
-			<h1>Cancellation</h1>
-		</div>
-		<div role="main" class="ui-content">
-			<form id="frmCancellationTer">
-				<input type="hidden" id="txt_cancel_ter" name="txt_cancel_ter" value="tertiary" />
-				<input type="hidden" id="txt_cancelTer_city" name="txt_cancelTer_city" />
-				<input type="hidden" id="txt_cancelTer_typhoon" name="txt_cancelTer_typhoon" />
-				<input type="text" id="txt_cancelTer_location" name="txt_cancelTer_location"  placeholder="School" />
-				<label>Date</label>
-				<fieldset data-role="controlgroup" data-type="horizontal">
-					<select name="txt_cancelTer_month" id="txt_cancelTer_month">
-							<option value="01">January</option>
-							<option value="02">February</option>
-							<option value="03">March</option>
-							<option value="04">April</option>
-							<option value="05">May</option>
-							<option value="06">June</option>
-							<option value="07">July</option>
-							<option value="08">August</option>
-							<option value="09">September</option>
-							<option value="10">October</option>
-							<option value="11">November</option>
-							<option value="12">December</option>
-						</select>
-						<select name="txt_cancelTer_day" id="txt_cancelTer_day">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-							<option value="16">16</option>
-							<option value="17">17</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30">30</option>
-							<option value="31">31</option>
-						</select>
-						<select name="txt_cancelTer_year" id="txt_cancelTer_year">
-							<option value="2015">2015</option>
-							<option value="2014">2014</option>
-							
-						</select>
-					</fieldset>
-			</form>
-		</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" >
-				<ul>
-					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCancellationTer">SUBMIT</button></li>
-				</ul>
-			</div>
-		</div>
-		<div data-role="popup" id="popupAfterReportDataSubmitCancellationTer" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
-					<div data-role="header">
-						<h1>SUBMITTED</h1>
-					</div>
-					<p id="popuptextReportDataSubmitCancellationTer" style="text-align: center;"></p>
-		</div>
-	</div>
-<!-- End Cancellation Page-->
-
-<!-- Start Cancellation  Page-->
-	<div data-role="page" id="rptCancellationGov" >
-		<div data-role="header">
-				<a href="#reportingPage" data-role="button" data-icon="arrow-l" class="ui-btn-icon-notext">Back</a>
-			<h1>Cancellation</h1>
-		</div>
-		<div role="main" class="ui-content">
-			<form id="frmCancellationGov">
-				<input type="hidden" id="txt_cancel_gov" name="txt_cancel_gov" value="government" />
-				<input type="hidden" id="txt_cancelGov_city" name="txt_cancelGov_city" />
-				<input type="hidden" id="txt_cancelGov_typhoon" name="txt_cancelGov_typhoon" />
-				<input type="text" id="txt_cancelGov_location" name="txt_cancelGov_location"  placeholder="Agency" />
-				<label>Date</label>
-				<fieldset data-role="controlgroup" data-type="horizontal">
-					<select name="txt_cancelGov_month" id="txt_cancelGov_month">
-							<option value="01">January</option>
-							<option value="02">February</option>
-							<option value="03">March</option>
-							<option value="04">April</option>
-							<option value="05">May</option>
-							<option value="06">June</option>
-							<option value="07">July</option>
-							<option value="08">August</option>
-							<option value="09">September</option>
-							<option value="10">October</option>
-							<option value="11">November</option>
-							<option value="12">December</option>
-						</select>
-						<select name="txt_cancelGov_day" id="txt_cancelGov_day">
-							<option value="1">1</option>
-							<option value="2">2</option>
-							<option value="3">3</option>
-							<option value="4">4</option>
-							<option value="5">5</option>
-							<option value="6">6</option>
-							<option value="7">7</option>
-							<option value="8">8</option>
-							<option value="9">9</option>
-							<option value="10">10</option>
-							<option value="11">11</option>
-							<option value="12">12</option>
-							<option value="13">13</option>
-							<option value="14">14</option>
-							<option value="15">15</option>
-							<option value="16">16</option>
-							<option value="17">17</option>
-							<option value="18">18</option>
-							<option value="19">19</option>
-							<option value="20">20</option>
-							<option value="21">21</option>
-							<option value="22">22</option>
-							<option value="23">23</option>
-							<option value="24">24</option>
-							<option value="25">25</option>
-							<option value="26">26</option>
-							<option value="27">27</option>
-							<option value="28">28</option>
-							<option value="29">29</option>
-							<option value="30">30</option>
-							<option value="31">31</option>
-						</select>
-						<select name="txt_cancelGov_year" id="txt_cancelGov_year">
-							<option value="2015">2015</option>
-							<option value="2014">2014</option>
-							
-						</select>
-					</fieldset>
-			</form>
-		</div>
-		<div data-role="footer" data-position="fixed">
-			<div data-role="navbar" >
-				<ul>
-					<li><button data-icon="check" class="ui-btn ui-btn-d"  id="btnSubmitCancellationGov">SUBMIT</button></li>
-				</ul>
-			</div>
-		</div>
-		<div data-role="popup" id="popupAfterReportDataSubmitCancellationGov" data-theme="d"  style="width:100%;margin-left: auto; margin-right:auto;">
-					<div data-role="header">
-						<h1>SUBMITTED</h1>
-					</div>
-					<p id="popuptextReportDataSubmitCancellationGov" style="text-align: center;"></p>
-		</div>
-	</div>
-<!-- End Cancellation Page-->
 
 <!-- Start Declaration of State of Calamity Page-->
 	<div data-role="page" id="rptCalamity" >
@@ -1626,10 +1263,11 @@ meter::-webkit-meter-even-less-good-value {
 	</div>
 	<div role="main" class="ui-content">
 		<form id="frmCalamity">
+		
 			<input type="hidden" id="txt_calamity_city" name="txt_calamity_city" />
 			<input type="hidden" id="txt_calamity_typhoon" name="txt_calamity_typhoon" />
 			<input type="text" id="txt_calamity_location" name="txt_calamity_location"  placeholder="Location" />
-			<input type="number" id="txt_calamity_resonum" name="txt_calamity_resonum" placeholder="Resolution Number" >
+			<input type="text" id="txt_calamity_resonum" name="txt_calamity_resonum" placeholder="Resolution Number" >
 		</form>
 		
 	</div>
@@ -1658,3 +1296,4 @@ meter::-webkit-meter-even-less-good-value {
 <!-- my code ends here -->
 </body>
 </html>
+		
